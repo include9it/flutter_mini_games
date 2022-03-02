@@ -21,7 +21,8 @@ class PlayBoard extends StatelessWidget {
                   context.read<PlayBoardCubit>();
 
               return GestureDetector(
-                onPanUpdate: playBoardCubit.onSwipe,
+                onHorizontalDragUpdate: playBoardCubit.onHorizontalSwipe,
+                onVerticalDragUpdate: playBoardCubit.onVerticalSwipe,
                 child: Container(
                   width: relativeToDesignPixels(255),
                   height: relativeToDesignPixels(255),
