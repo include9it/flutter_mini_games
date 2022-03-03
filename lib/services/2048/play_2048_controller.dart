@@ -76,12 +76,43 @@ class Play2048Controller {
     return [firstCell, secondCell];
   }
 
-  void move() {
-    final list = [2, null, null, 2]; // TODO need to move all numbers first, after what it can be fused
+  List<int?> sortToRight({
+    required List<int?> row,
+  }) {
+    List<int?> sorted = row.where((item) {
+      return item != null;
+    }).toList();
 
-    for (int index = list.length - 1; index > 0; index--) {
-      final List<int?> fusionCell =
-          fusion(firstCell: list[index - 1], secondCell: list[index]);
+    row.where((item) {
+      final bool hasValue = item == null;
+      if (hasValue) {
+        sorted.add(item);
+      }
+      return hasValue;
+    }).toList();
+
+    return sorted.reversed.toList();
+  }
+
+  void move() {
+    final list = [2, null, null, 2];
+    // TODO need to move all numbers first, after what it can be fused
+
+    final sortedRow = sortToRight(row: list);
+
+    List<int?> fusionRow = [];
+    for (int index = sortedRow.length - 1; index > 0; index--) {
+      final sortedBlock =
+          fusion(firstCell: sortedRow[index - 1], secondCell: sortedRow[index]);
+
+      // TODO result is [null, null, 2, 4], need to interact with sortedRow
+      fusionRow.add(sortedBlock.last);
+
+      if (index == 1) {
+        fusionRow.add(sortedBlock.first);
+      }
     }
+
+    print(fusionRow.reversed.toList().toString());
   }
 }
