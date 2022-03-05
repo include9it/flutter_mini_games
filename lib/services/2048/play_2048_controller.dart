@@ -79,40 +79,37 @@ class Play2048Controller {
   List<int?> sortToRight({
     required List<int?> row,
   }) {
+    // print('Checking can sort...'); // TODO check can Sort
+    // if (!row.contains(null) && row.isNotEmpty) return row;
+    // print('Sorting...');
+
     List<int?> sorted = row.where((item) {
+      return item == null;
+    }).toList();
+
+    sorted.addAll(row.where((item) {
       return item != null;
-    }).toList();
+    }));
 
-    row.where((item) {
-      final bool hasValue = item == null;
-      if (hasValue) {
-        sorted.add(item);
-      }
-      return hasValue;
-    }).toList();
-
-    return sorted.reversed.toList();
+    return sorted;
   }
 
   void move() {
-    final list = [2, null, null, 2];
+    final List<int?> list = [2, 2, 4, 4];
     // TODO need to move all numbers first, after what it can be fused
 
-    final sortedRow = sortToRight(row: list);
+    List<int?> sortedRow = sortToRight(row: list);
 
-    List<int?> fusionRow = [];
     for (int index = sortedRow.length - 1; index > 0; index--) {
       final sortedBlock =
           fusion(firstCell: sortedRow[index - 1], secondCell: sortedRow[index]);
 
-      // TODO result is [null, null, 2, 4], need to interact with sortedRow
-      fusionRow.add(sortedBlock.last);
+      sortedRow[index - 1] = sortedBlock.first;
+      sortedRow[index] = sortedBlock.last;
 
-      if (index == 1) {
-        fusionRow.add(sortedBlock.first);
-      }
+      sortedRow = sortToRight(row: sortedRow);
     }
 
-    print(fusionRow.reversed.toList().toString());
+    print(sortedRow.toString());
   }
 }
