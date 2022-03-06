@@ -47,10 +47,6 @@ class _$PlayBoardStateTearOff {
       filledGrid: filledGrid,
     );
   }
-
-  ResetPlayBoardState reset() {
-    return const ResetPlayBoardState();
-  }
 }
 
 /// @nodoc
@@ -65,7 +61,6 @@ mixin _$PlayBoardState {
     required TResult Function(List<List<int?>> filledGrid) swipeDown,
     required TResult Function(List<List<int?>> filledGrid) swipeLeft,
     required TResult Function(List<List<int?>> filledGrid) swipeRight,
-    required TResult Function() reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -75,7 +70,6 @@ mixin _$PlayBoardState {
     TResult Function(List<List<int?>> filledGrid)? swipeDown,
     TResult Function(List<List<int?>> filledGrid)? swipeLeft,
     TResult Function(List<List<int?>> filledGrid)? swipeRight,
-    TResult Function()? reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -85,7 +79,6 @@ mixin _$PlayBoardState {
     TResult Function(List<List<int?>> filledGrid)? swipeDown,
     TResult Function(List<List<int?>> filledGrid)? swipeLeft,
     TResult Function(List<List<int?>> filledGrid)? swipeRight,
-    TResult Function()? reset,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -96,7 +89,6 @@ mixin _$PlayBoardState {
     required TResult Function(SwipeDownPlayBoardState value) swipeDown,
     required TResult Function(SwipeLeftPlayBoardState value) swipeLeft,
     required TResult Function(SwipeRightPlayBoardState value) swipeRight,
-    required TResult Function(ResetPlayBoardState value) reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -106,7 +98,6 @@ mixin _$PlayBoardState {
     TResult Function(SwipeDownPlayBoardState value)? swipeDown,
     TResult Function(SwipeLeftPlayBoardState value)? swipeLeft,
     TResult Function(SwipeRightPlayBoardState value)? swipeRight,
-    TResult Function(ResetPlayBoardState value)? reset,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -116,7 +107,6 @@ mixin _$PlayBoardState {
     TResult Function(SwipeDownPlayBoardState value)? swipeDown,
     TResult Function(SwipeLeftPlayBoardState value)? swipeLeft,
     TResult Function(SwipeRightPlayBoardState value)? swipeRight,
-    TResult Function(ResetPlayBoardState value)? reset,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -221,7 +211,6 @@ class _$InitialPlayBoardState extends InitialPlayBoardState {
     required TResult Function(List<List<int?>> filledGrid) swipeDown,
     required TResult Function(List<List<int?>> filledGrid) swipeLeft,
     required TResult Function(List<List<int?>> filledGrid) swipeRight,
-    required TResult Function() reset,
   }) {
     return initial(width, height);
   }
@@ -234,7 +223,6 @@ class _$InitialPlayBoardState extends InitialPlayBoardState {
     TResult Function(List<List<int?>> filledGrid)? swipeDown,
     TResult Function(List<List<int?>> filledGrid)? swipeLeft,
     TResult Function(List<List<int?>> filledGrid)? swipeRight,
-    TResult Function()? reset,
   }) {
     return initial?.call(width, height);
   }
@@ -247,7 +235,6 @@ class _$InitialPlayBoardState extends InitialPlayBoardState {
     TResult Function(List<List<int?>> filledGrid)? swipeDown,
     TResult Function(List<List<int?>> filledGrid)? swipeLeft,
     TResult Function(List<List<int?>> filledGrid)? swipeRight,
-    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -264,7 +251,6 @@ class _$InitialPlayBoardState extends InitialPlayBoardState {
     required TResult Function(SwipeDownPlayBoardState value) swipeDown,
     required TResult Function(SwipeLeftPlayBoardState value) swipeLeft,
     required TResult Function(SwipeRightPlayBoardState value) swipeRight,
-    required TResult Function(ResetPlayBoardState value) reset,
   }) {
     return initial(this);
   }
@@ -277,7 +263,6 @@ class _$InitialPlayBoardState extends InitialPlayBoardState {
     TResult Function(SwipeDownPlayBoardState value)? swipeDown,
     TResult Function(SwipeLeftPlayBoardState value)? swipeLeft,
     TResult Function(SwipeRightPlayBoardState value)? swipeRight,
-    TResult Function(ResetPlayBoardState value)? reset,
   }) {
     return initial?.call(this);
   }
@@ -290,7 +275,6 @@ class _$InitialPlayBoardState extends InitialPlayBoardState {
     TResult Function(SwipeDownPlayBoardState value)? swipeDown,
     TResult Function(SwipeLeftPlayBoardState value)? swipeLeft,
     TResult Function(SwipeRightPlayBoardState value)? swipeRight,
-    TResult Function(ResetPlayBoardState value)? reset,
     required TResult orElse(),
   }) {
     if (initial != null) {
@@ -384,7 +368,6 @@ class _$SwipeUpPlayBoardState extends SwipeUpPlayBoardState {
     required TResult Function(List<List<int?>> filledGrid) swipeDown,
     required TResult Function(List<List<int?>> filledGrid) swipeLeft,
     required TResult Function(List<List<int?>> filledGrid) swipeRight,
-    required TResult Function() reset,
   }) {
     return swipeUp(filledGrid);
   }
@@ -397,7 +380,6 @@ class _$SwipeUpPlayBoardState extends SwipeUpPlayBoardState {
     TResult Function(List<List<int?>> filledGrid)? swipeDown,
     TResult Function(List<List<int?>> filledGrid)? swipeLeft,
     TResult Function(List<List<int?>> filledGrid)? swipeRight,
-    TResult Function()? reset,
   }) {
     return swipeUp?.call(filledGrid);
   }
@@ -410,7 +392,6 @@ class _$SwipeUpPlayBoardState extends SwipeUpPlayBoardState {
     TResult Function(List<List<int?>> filledGrid)? swipeDown,
     TResult Function(List<List<int?>> filledGrid)? swipeLeft,
     TResult Function(List<List<int?>> filledGrid)? swipeRight,
-    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (swipeUp != null) {
@@ -427,7 +408,6 @@ class _$SwipeUpPlayBoardState extends SwipeUpPlayBoardState {
     required TResult Function(SwipeDownPlayBoardState value) swipeDown,
     required TResult Function(SwipeLeftPlayBoardState value) swipeLeft,
     required TResult Function(SwipeRightPlayBoardState value) swipeRight,
-    required TResult Function(ResetPlayBoardState value) reset,
   }) {
     return swipeUp(this);
   }
@@ -440,7 +420,6 @@ class _$SwipeUpPlayBoardState extends SwipeUpPlayBoardState {
     TResult Function(SwipeDownPlayBoardState value)? swipeDown,
     TResult Function(SwipeLeftPlayBoardState value)? swipeLeft,
     TResult Function(SwipeRightPlayBoardState value)? swipeRight,
-    TResult Function(ResetPlayBoardState value)? reset,
   }) {
     return swipeUp?.call(this);
   }
@@ -453,7 +432,6 @@ class _$SwipeUpPlayBoardState extends SwipeUpPlayBoardState {
     TResult Function(SwipeDownPlayBoardState value)? swipeDown,
     TResult Function(SwipeLeftPlayBoardState value)? swipeLeft,
     TResult Function(SwipeRightPlayBoardState value)? swipeRight,
-    TResult Function(ResetPlayBoardState value)? reset,
     required TResult orElse(),
   }) {
     if (swipeUp != null) {
@@ -546,7 +524,6 @@ class _$SwipeDownPlayBoardState extends SwipeDownPlayBoardState {
     required TResult Function(List<List<int?>> filledGrid) swipeDown,
     required TResult Function(List<List<int?>> filledGrid) swipeLeft,
     required TResult Function(List<List<int?>> filledGrid) swipeRight,
-    required TResult Function() reset,
   }) {
     return swipeDown(filledGrid);
   }
@@ -559,7 +536,6 @@ class _$SwipeDownPlayBoardState extends SwipeDownPlayBoardState {
     TResult Function(List<List<int?>> filledGrid)? swipeDown,
     TResult Function(List<List<int?>> filledGrid)? swipeLeft,
     TResult Function(List<List<int?>> filledGrid)? swipeRight,
-    TResult Function()? reset,
   }) {
     return swipeDown?.call(filledGrid);
   }
@@ -572,7 +548,6 @@ class _$SwipeDownPlayBoardState extends SwipeDownPlayBoardState {
     TResult Function(List<List<int?>> filledGrid)? swipeDown,
     TResult Function(List<List<int?>> filledGrid)? swipeLeft,
     TResult Function(List<List<int?>> filledGrid)? swipeRight,
-    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (swipeDown != null) {
@@ -589,7 +564,6 @@ class _$SwipeDownPlayBoardState extends SwipeDownPlayBoardState {
     required TResult Function(SwipeDownPlayBoardState value) swipeDown,
     required TResult Function(SwipeLeftPlayBoardState value) swipeLeft,
     required TResult Function(SwipeRightPlayBoardState value) swipeRight,
-    required TResult Function(ResetPlayBoardState value) reset,
   }) {
     return swipeDown(this);
   }
@@ -602,7 +576,6 @@ class _$SwipeDownPlayBoardState extends SwipeDownPlayBoardState {
     TResult Function(SwipeDownPlayBoardState value)? swipeDown,
     TResult Function(SwipeLeftPlayBoardState value)? swipeLeft,
     TResult Function(SwipeRightPlayBoardState value)? swipeRight,
-    TResult Function(ResetPlayBoardState value)? reset,
   }) {
     return swipeDown?.call(this);
   }
@@ -615,7 +588,6 @@ class _$SwipeDownPlayBoardState extends SwipeDownPlayBoardState {
     TResult Function(SwipeDownPlayBoardState value)? swipeDown,
     TResult Function(SwipeLeftPlayBoardState value)? swipeLeft,
     TResult Function(SwipeRightPlayBoardState value)? swipeRight,
-    TResult Function(ResetPlayBoardState value)? reset,
     required TResult orElse(),
   }) {
     if (swipeDown != null) {
@@ -708,7 +680,6 @@ class _$SwipeLeftPlayBoardState extends SwipeLeftPlayBoardState {
     required TResult Function(List<List<int?>> filledGrid) swipeDown,
     required TResult Function(List<List<int?>> filledGrid) swipeLeft,
     required TResult Function(List<List<int?>> filledGrid) swipeRight,
-    required TResult Function() reset,
   }) {
     return swipeLeft(filledGrid);
   }
@@ -721,7 +692,6 @@ class _$SwipeLeftPlayBoardState extends SwipeLeftPlayBoardState {
     TResult Function(List<List<int?>> filledGrid)? swipeDown,
     TResult Function(List<List<int?>> filledGrid)? swipeLeft,
     TResult Function(List<List<int?>> filledGrid)? swipeRight,
-    TResult Function()? reset,
   }) {
     return swipeLeft?.call(filledGrid);
   }
@@ -734,7 +704,6 @@ class _$SwipeLeftPlayBoardState extends SwipeLeftPlayBoardState {
     TResult Function(List<List<int?>> filledGrid)? swipeDown,
     TResult Function(List<List<int?>> filledGrid)? swipeLeft,
     TResult Function(List<List<int?>> filledGrid)? swipeRight,
-    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (swipeLeft != null) {
@@ -751,7 +720,6 @@ class _$SwipeLeftPlayBoardState extends SwipeLeftPlayBoardState {
     required TResult Function(SwipeDownPlayBoardState value) swipeDown,
     required TResult Function(SwipeLeftPlayBoardState value) swipeLeft,
     required TResult Function(SwipeRightPlayBoardState value) swipeRight,
-    required TResult Function(ResetPlayBoardState value) reset,
   }) {
     return swipeLeft(this);
   }
@@ -764,7 +732,6 @@ class _$SwipeLeftPlayBoardState extends SwipeLeftPlayBoardState {
     TResult Function(SwipeDownPlayBoardState value)? swipeDown,
     TResult Function(SwipeLeftPlayBoardState value)? swipeLeft,
     TResult Function(SwipeRightPlayBoardState value)? swipeRight,
-    TResult Function(ResetPlayBoardState value)? reset,
   }) {
     return swipeLeft?.call(this);
   }
@@ -777,7 +744,6 @@ class _$SwipeLeftPlayBoardState extends SwipeLeftPlayBoardState {
     TResult Function(SwipeDownPlayBoardState value)? swipeDown,
     TResult Function(SwipeLeftPlayBoardState value)? swipeLeft,
     TResult Function(SwipeRightPlayBoardState value)? swipeRight,
-    TResult Function(ResetPlayBoardState value)? reset,
     required TResult orElse(),
   }) {
     if (swipeLeft != null) {
@@ -871,7 +837,6 @@ class _$SwipeRightPlayBoardState extends SwipeRightPlayBoardState {
     required TResult Function(List<List<int?>> filledGrid) swipeDown,
     required TResult Function(List<List<int?>> filledGrid) swipeLeft,
     required TResult Function(List<List<int?>> filledGrid) swipeRight,
-    required TResult Function() reset,
   }) {
     return swipeRight(filledGrid);
   }
@@ -884,7 +849,6 @@ class _$SwipeRightPlayBoardState extends SwipeRightPlayBoardState {
     TResult Function(List<List<int?>> filledGrid)? swipeDown,
     TResult Function(List<List<int?>> filledGrid)? swipeLeft,
     TResult Function(List<List<int?>> filledGrid)? swipeRight,
-    TResult Function()? reset,
   }) {
     return swipeRight?.call(filledGrid);
   }
@@ -897,7 +861,6 @@ class _$SwipeRightPlayBoardState extends SwipeRightPlayBoardState {
     TResult Function(List<List<int?>> filledGrid)? swipeDown,
     TResult Function(List<List<int?>> filledGrid)? swipeLeft,
     TResult Function(List<List<int?>> filledGrid)? swipeRight,
-    TResult Function()? reset,
     required TResult orElse(),
   }) {
     if (swipeRight != null) {
@@ -914,7 +877,6 @@ class _$SwipeRightPlayBoardState extends SwipeRightPlayBoardState {
     required TResult Function(SwipeDownPlayBoardState value) swipeDown,
     required TResult Function(SwipeLeftPlayBoardState value) swipeLeft,
     required TResult Function(SwipeRightPlayBoardState value) swipeRight,
-    required TResult Function(ResetPlayBoardState value) reset,
   }) {
     return swipeRight(this);
   }
@@ -927,7 +889,6 @@ class _$SwipeRightPlayBoardState extends SwipeRightPlayBoardState {
     TResult Function(SwipeDownPlayBoardState value)? swipeDown,
     TResult Function(SwipeLeftPlayBoardState value)? swipeLeft,
     TResult Function(SwipeRightPlayBoardState value)? swipeRight,
-    TResult Function(ResetPlayBoardState value)? reset,
   }) {
     return swipeRight?.call(this);
   }
@@ -940,7 +901,6 @@ class _$SwipeRightPlayBoardState extends SwipeRightPlayBoardState {
     TResult Function(SwipeDownPlayBoardState value)? swipeDown,
     TResult Function(SwipeLeftPlayBoardState value)? swipeLeft,
     TResult Function(SwipeRightPlayBoardState value)? swipeRight,
-    TResult Function(ResetPlayBoardState value)? reset,
     required TResult orElse(),
   }) {
     if (swipeRight != null) {
@@ -959,134 +919,4 @@ abstract class SwipeRightPlayBoardState extends PlayBoardState {
   @JsonKey(ignore: true)
   $SwipeRightPlayBoardStateCopyWith<SwipeRightPlayBoardState> get copyWith =>
       throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class $ResetPlayBoardStateCopyWith<$Res> {
-  factory $ResetPlayBoardStateCopyWith(
-          ResetPlayBoardState value, $Res Function(ResetPlayBoardState) then) =
-      _$ResetPlayBoardStateCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class _$ResetPlayBoardStateCopyWithImpl<$Res>
-    extends _$PlayBoardStateCopyWithImpl<$Res>
-    implements $ResetPlayBoardStateCopyWith<$Res> {
-  _$ResetPlayBoardStateCopyWithImpl(
-      ResetPlayBoardState _value, $Res Function(ResetPlayBoardState) _then)
-      : super(_value, (v) => _then(v as ResetPlayBoardState));
-
-  @override
-  ResetPlayBoardState get _value => super._value as ResetPlayBoardState;
-}
-
-/// @nodoc
-
-class _$ResetPlayBoardState extends ResetPlayBoardState {
-  const _$ResetPlayBoardState() : super._();
-
-  @override
-  String toString() {
-    return 'PlayBoardState.reset()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is ResetPlayBoardState);
-  }
-
-  @override
-  int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int width, int height) initial,
-    required TResult Function(List<List<int?>> filledGrid) swipeUp,
-    required TResult Function(List<List<int?>> filledGrid) swipeDown,
-    required TResult Function(List<List<int?>> filledGrid) swipeLeft,
-    required TResult Function(List<List<int?>> filledGrid) swipeRight,
-    required TResult Function() reset,
-  }) {
-    return reset();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int width, int height)? initial,
-    TResult Function(List<List<int?>> filledGrid)? swipeUp,
-    TResult Function(List<List<int?>> filledGrid)? swipeDown,
-    TResult Function(List<List<int?>> filledGrid)? swipeLeft,
-    TResult Function(List<List<int?>> filledGrid)? swipeRight,
-    TResult Function()? reset,
-  }) {
-    return reset?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int width, int height)? initial,
-    TResult Function(List<List<int?>> filledGrid)? swipeUp,
-    TResult Function(List<List<int?>> filledGrid)? swipeDown,
-    TResult Function(List<List<int?>> filledGrid)? swipeLeft,
-    TResult Function(List<List<int?>> filledGrid)? swipeRight,
-    TResult Function()? reset,
-    required TResult orElse(),
-  }) {
-    if (reset != null) {
-      return reset();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(InitialPlayBoardState value) initial,
-    required TResult Function(SwipeUpPlayBoardState value) swipeUp,
-    required TResult Function(SwipeDownPlayBoardState value) swipeDown,
-    required TResult Function(SwipeLeftPlayBoardState value) swipeLeft,
-    required TResult Function(SwipeRightPlayBoardState value) swipeRight,
-    required TResult Function(ResetPlayBoardState value) reset,
-  }) {
-    return reset(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(InitialPlayBoardState value)? initial,
-    TResult Function(SwipeUpPlayBoardState value)? swipeUp,
-    TResult Function(SwipeDownPlayBoardState value)? swipeDown,
-    TResult Function(SwipeLeftPlayBoardState value)? swipeLeft,
-    TResult Function(SwipeRightPlayBoardState value)? swipeRight,
-    TResult Function(ResetPlayBoardState value)? reset,
-  }) {
-    return reset?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(InitialPlayBoardState value)? initial,
-    TResult Function(SwipeUpPlayBoardState value)? swipeUp,
-    TResult Function(SwipeDownPlayBoardState value)? swipeDown,
-    TResult Function(SwipeLeftPlayBoardState value)? swipeLeft,
-    TResult Function(SwipeRightPlayBoardState value)? swipeRight,
-    TResult Function(ResetPlayBoardState value)? reset,
-    required TResult orElse(),
-  }) {
-    if (reset != null) {
-      return reset(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class ResetPlayBoardState extends PlayBoardState {
-  const factory ResetPlayBoardState() = _$ResetPlayBoardState;
-  const ResetPlayBoardState._() : super._();
 }

@@ -59,7 +59,8 @@ class PlayBoardCubit extends Cubit<PlayBoardState> {
   void reset() {
     _logger.d('\t---!> Reset !!!');
 
-    emit(const PlayBoardState.reset());
+    emit(PlayBoardState.initial(
+        width: state.filledGrid.first.length, height: state.gridHeight));
   }
 
 // TODO need to fix swipes!

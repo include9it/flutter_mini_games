@@ -28,8 +28,6 @@ class PlayBoardState with _$PlayBoardState {
     required List<List<int?>> filledGrid,
   }) = SwipeRightPlayBoardState;
 
-  const factory PlayBoardState.reset() = ResetPlayBoardState;
-
   List<List<int?>> get filledGrid => map(
         initial: (state) => generateInitialGrid(
           width: state.width,
@@ -39,10 +37,6 @@ class PlayBoardState with _$PlayBoardState {
         swipeDown: (state) => state.filledGrid,
         swipeLeft: (state) => state.filledGrid,
         swipeRight: (state) => state.filledGrid,
-        reset: (state) => generateInitialGrid(
-          width: state.filledGrid.first.length,
-          height: state.filledGrid.length,
-        ),
       );
 
   int get gridHeight => filledGrid.length;
