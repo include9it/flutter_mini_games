@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter_mini_games/screens/play_screen/widgets/blocs/play_board_state.dart';
 import 'package:flutter_mini_games/services/2048/play_2048_generator.dart';
 import 'package:flutter_mini_games/services/2048/play_2048_transition.dart';
 import 'package:flutter_mini_games/services/helpers/log_helper.dart';
+import 'package:flutter_mini_games/widgets/game_2048_widget/blocs/play_board_state.dart';
 import 'package:logger/logger.dart';
 
 class PlayBoardCubit extends Cubit<PlayBoardState> {

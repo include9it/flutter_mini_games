@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mini_games/app_state/theme/app_theme_cubit.dart';
+import 'package:flutter_mini_games/widgets/game_2048_widget/blocs/play_board_cubit.dart';
+import 'package:flutter_mini_games/widgets/game_2048_widget/blocs/play_board_state.dart';
 import 'package:flutter_mini_games/config/visual.dart';
-import 'package:flutter_mini_games/screens/play_screen/widgets/blocs/play_board_cubit.dart';
-import 'package:flutter_mini_games/screens/play_screen/widgets/blocs/play_board_state.dart';
-import 'package:flutter_mini_games/screens/play_screen/widgets/buttons/play_control_buttons.dart';
-import 'package:flutter_mini_games/screens/play_screen/widgets/play_board_grid.dart';
+import 'package:flutter_mini_games/widgets/game_2048_widget/buttons/play_control_buttons.dart';
+import 'package:flutter_mini_games/widgets/game_2048_widget/play_board_grid.dart';
 
 class PlayBoard extends StatelessWidget {
   const PlayBoard({Key? key}) : super(key: key);

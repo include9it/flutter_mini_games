@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter_mini_games/screens/play_screen/widgets/play_grid_tile.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_mini_games/widgets/game_2048_widget/play_grid_tile.dart';
 
 class PlayBoardGridRow extends StatelessWidget {
   final List<int?> row;

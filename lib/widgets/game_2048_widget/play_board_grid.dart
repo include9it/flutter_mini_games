@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_mini_games/screens/play_screen/widgets/blocs/play_board_cubit.dart';
-import 'package:flutter_mini_games/screens/play_screen/widgets/blocs/play_board_state.dart';
-import 'package:flutter_mini_games/screens/play_screen/widgets/play_board_grid_row.dart';
-import 'package:flutter_mini_games/screens/play_screen/widgets/play_grid_tile.dart';
+import 'package:flutter_mini_games/widgets/game_2048_widget/blocs/play_board_cubit.dart';
+import 'package:flutter_mini_games/widgets/game_2048_widget/blocs/play_board_state.dart';
+import 'package:flutter_mini_games/widgets/game_2048_widget/play_board_grid_row.dart';
 
 class PlayBoardGrid extends StatelessWidget {
   final List<List<int?>> grid;

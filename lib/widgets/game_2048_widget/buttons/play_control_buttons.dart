@@ -2,9 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mini_games/config/visual.dart';
-import 'package:flutter_mini_games/screens/play_screen/widgets/blocs/play_board_cubit.dart';
-import 'package:flutter_mini_games/screens/play_screen/widgets/blocs/play_board_state.dart';
-import 'package:flutter_mini_games/screens/play_screen/widgets/buttons/play_control_button.dart';
+import 'package:flutter_mini_games/widgets/game_2048_widget/blocs/play_board_cubit.dart';
+import 'package:flutter_mini_games/widgets/game_2048_widget/blocs/play_board_state.dart';
+import 'package:flutter_mini_games/widgets/game_2048_widget/buttons/play_control_button.dart';
 
 class PlayControlButtons extends StatelessWidget {
   const PlayControlButtons({Key? key}) : super(key: key);
