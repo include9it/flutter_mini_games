@@ -1,7 +1,7 @@
 import 'package:flutter_mini_games/services/2048/play_2048_randomizer.dart';
 import 'package:flutter_mini_games/services/helpers/log_helper.dart';
 
-List<List<int?>> generateEmptyGrid({
+List<List<int?>> _generateEmptyGrid({
   required int rows,
   required int columns,
 }) {
@@ -24,7 +24,7 @@ List<List<int?>> generateInitialGrid({
 }) {
   getLoggerByName('Global').d('Generating Initial Grid...');
 
-  List<List<int?>> emptyGrid = generateEmptyGrid(
+  List<List<int?>> emptyGrid = _generateEmptyGrid(
     rows: width,
     columns: height,
   );

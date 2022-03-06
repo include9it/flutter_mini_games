@@ -59,6 +59,10 @@ class PlayBoardCubit extends Cubit<PlayBoardState> {
   void reset() {
     _logger.d('\t---!> Reset !!!');
 
+    if (state is InitialPlayBoardState) {
+      return;
+    }
+
     emit(PlayBoardState.initial(
         width: state.filledGrid.first.length, height: state.gridHeight));
   }

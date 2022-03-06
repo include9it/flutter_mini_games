@@ -14,8 +14,8 @@ class PlayBoard extends StatelessWidget {
 
   const PlayBoard({
     Key? key,
-    this.width = 6,
-    this.height = 6,
+    this.width = 4,
+    this.height = 4,
   }) : super(key: key);
 
   @override
