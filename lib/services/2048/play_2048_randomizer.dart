@@ -1,9 +1,12 @@
 import 'dart:math';
 
 import 'package:flutter_mini_games/services/2048/helpers/print_helper.dart';
+import 'package:flutter_mini_games/services/helpers/log_helper.dart';
+import 'package:logger/logger.dart';
 
 class RandomHelper {
   final Random _random = Random();
+  final Logger _logger = getLogger(T: RandomHelper);
 
   int _randomSimpleBlock() => _random.nextInt(2) == 0 ? 2 : 4;
 
@@ -12,7 +15,7 @@ class RandomHelper {
   List<List<int?>> putRandomLocation({
     required List<List<int?>> grid,
   }) {
-    printLn('randomize initial number\n');
+    _logger.d('randomize initial number');
 
     List<List<int?>> updatedGrid = [];
 

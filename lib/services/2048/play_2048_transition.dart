@@ -1,6 +1,10 @@
 import 'package:flutter_mini_games/services/2048/helpers/print_helper.dart';
+import 'package:flutter_mini_games/services/helpers/log_helper.dart';
+import 'package:logger/logger.dart';
 
 class Play2048Transition {
+  final Logger _logger = getLogger(T: Play2048Transition);
+
   List<int?> _fusion({
     int? firstCell,
     int? secondCell,
@@ -56,7 +60,7 @@ class Play2048Transition {
   List<List<int?>> moveRight({
     required List<List<int?>> grid,
   }) {
-    printLn('move grid right\n\n');
+    _logger.d('move grid right');
 
     final List<List<int?>> updatedGrid = [];
 

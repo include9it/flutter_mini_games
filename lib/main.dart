@@ -5,6 +5,8 @@ import 'package:flutter_mini_games/app_state/theme/get_theme_data.dart';
 import 'package:flutter_mini_games/screens/play_screen/play_screen.dart';
 
 void main() {
+  // Logger.level = Level.nothing; // TODO uncomment and change level if needed
+
   runApp(const MyApp());
 }
 
