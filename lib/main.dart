@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mini_games/app_state/theme/app_theme_cubit.dart';
 import 'package:flutter_mini_games/app_state/theme/get_theme_data.dart';
 import 'package:flutter_mini_games/screens/play_screen/play_screen.dart';
+import 'package:logger/logger.dart';
 
 void main() {
   // Logger.level = Level.nothing; // TODO uncomment and change level if needed

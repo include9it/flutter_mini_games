@@ -19,8 +19,11 @@ class PlayBoardCubit extends Cubit<PlayBoardState> {
   //   [4, null, null, 2]
   // ],
   PlayBoardCubit({
-    List<List<int?>>? grid,
-  }) : super(PlayBoardState.initial(filledGrid: grid ?? generateInitialGrid()));
+    required int width,
+    required int height,
+  }) : super(PlayBoardState.initial(
+          filledGrid: generateInitialGrid(width: width, height: height),
+        ));
 
   void swipeUp() {
     _logger.d('<------ swipe UP');
