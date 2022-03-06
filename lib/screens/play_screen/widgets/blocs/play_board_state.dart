@@ -27,8 +27,12 @@ class PlayBoardState with _$PlayBoardState {
   }) = SwipeRightPlayBoardState;
 
   @override
-  List<List<int?>> get filledGrid => maybeMap(
-        orElse: () => [],
+  List<List<int?>> get filledGrid => map(
+        initial: (state) => state.filledGrid,
+        swipeUp: (state) => state.filledGrid,
+        swipeDown: (state) => state.filledGrid,
+        swipeLeft: (state) => state.filledGrid,
+        swipeRight: (state) => state.filledGrid,
       );
 
   int get gridSize => filledGrid.length;

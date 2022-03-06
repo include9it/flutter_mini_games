@@ -1,65 +1,66 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mini_games/screens/play_screen/widgets/blocs/play_board_state.dart';
+import 'package:flutter_mini_games/services/2048/helpers/print_helper.dart';
 import 'package:flutter_mini_games/services/2048/play_2048_controller.dart';
+import 'package:flutter_mini_games/services/2048/play_2048_generator.dart';
+import 'package:flutter_mini_games/services/2048/play_2048_transition.dart';
 
 class PlayBoardCubit extends Cubit<PlayBoardState> {
-  PlayBoardCubit()
-      : super(const PlayBoardState.initial(
-          filledGrid: [
-            [null, null, null, null],
-            [null, null, null, null],
-            [null, null, null, null],
-            [null, null, 2, 2]
-          ],
-        ));
+  final Play2048Transition _transition = Play2048Transition();
+
+  // Note: Sensitivity is integer used when you don't want to mess up vertical drag
+  int sensitivity = 3;
+
+  // grid: [
+  //   [null, null, null, null],
+  //   [null, null, null, null],
+  //   [null, null, null, null],
+  //   [null, null, null, null]
+  // ],
+  PlayBoardCubit({
+    List<List<int?>>? grid,
+  }) : super(PlayBoardState.initial(filledGrid: grid ?? generateInitialGrid()));
 
   void onHorizontalSwipe(DragUpdateDetails details) {
-    if (details.delta.direction > 0) {
-      // User swiped Left
-      swipeLeft();
-    } else if (details.delta.direction < 0) {
-      // User swiped Right
-      swipeRight();
+    if (details.delta.direction > sensitivity) {
+      _swipeLeft();
+    } else if (details.delta.direction < -sensitivity) {
+      _swipeRight();
     }
   }
 
   void onVerticalSwipe(DragUpdateDetails details) {
-    if (details.delta.direction > 0) {
-      swipeDown();
-    } else if (details.delta.direction < 0) {
-      swipeUp();
+    if (details.delta.direction > sensitivity) {
+      _swipeDown();
+    } else if (details.delta.direction < -sensitivity) {
+      _swipeUp();
     }
   }
 
-  void onSwipe(DragUpdateDetails details) {
-    // Swiping in up direction.
-    if (details.delta.dy > 0) swipeUp();
+  void _swipeUp() {
+    printLn('<------ swipe UP');
 
-    // Swiping in down direction.
-    if (details.delta.dy < 0) swipeDown();
-
-    // Swiping in right direction.
-    if (details.delta.dx > 0) swipeRight();
-
-    // Swiping in left direction.
-    if (details.delta.dx < 0) swipeLeft();
-  }
-
-  void swipeUp() {
     emit(PlayBoardState.swipeUp(filledGrid: state.filledGrid));
-    Play2048Controller();
   }
 
-  void swipeDown() {
+  void _swipeDown() {
+    printLn('<------ swipe DOWN');
+
     emit(PlayBoardState.swipeDown(filledGrid: state.filledGrid));
   }
 
-  void swipeLeft() {
+  void _swipeLeft() {
+    printLn('<--- swipe LEFT');
+
     emit(PlayBoardState.swipeLeft(filledGrid: state.filledGrid));
   }
 
-  void swipeRight() {
-    emit(PlayBoardState.swipeRight(filledGrid: state.filledGrid));
+  void _swipeRight() {
+    printLn('<--- swipe RIGHT');
+
+    final update = _transition.moveRight(grid: state.filledGrid);
+
+    emit(PlayBoardState.swipeRight(filledGrid: update));
   }
 }
