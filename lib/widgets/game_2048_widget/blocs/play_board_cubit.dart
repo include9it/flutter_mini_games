@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_mini_games/services/2048/play_2048_generator.dart';
 import 'package:flutter_mini_games/services/2048/play_2048_transition.dart';
 import 'package:flutter_mini_games/services/helpers/log_helper.dart';
@@ -10,7 +11,7 @@ class PlayBoardCubit extends Cubit<PlayBoardState> {
   final Logger _logger = getLogger(T: PlayBoardCubit);
 
   // // Note: Sensitivity is integer used when you don't want to mess up vertical drag
-  // int sensitivity = 0;
+  // int sensitivity = 1;
 
   // grid: [
   //   [null, null, null, null],
@@ -21,9 +22,7 @@ class PlayBoardCubit extends Cubit<PlayBoardState> {
   PlayBoardCubit({
     required int width,
     required int height,
-  }) : super(PlayBoardState.initial(
-          filledGrid: generateInitialGrid(width: width, height: height),
-        ));
+  }) : super(PlayBoardState.initial(width: width, height: height));
 
   void swipeUp() {
     _logger.d('<------ swipe UP');
@@ -57,6 +56,13 @@ class PlayBoardCubit extends Cubit<PlayBoardState> {
     emit(PlayBoardState.swipeRight(filledGrid: update));
   }
 
+  void reset() {
+    _logger.d('\t---!> Reset !!!');
+
+    emit(const PlayBoardState.reset());
+  }
+
+// TODO need to fix swipes!
 // void onHorizontalSwipe(DragUpdateDetails details) {
 //   if (details.delta.direction > sensitivity) {
 //     swipeLeft();

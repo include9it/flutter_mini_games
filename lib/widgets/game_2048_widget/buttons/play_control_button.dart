@@ -16,9 +16,13 @@ class PlayControlButton extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        height: relativeToDesignPixels(80),
-        width: relativeToDesignPixels(80),
-        decoration: BoxDecoration(border: Border.all()),
+        height: relativeToDesignPixels(60),
+        width: relativeToDesignPixels(75),
+        decoration: BoxDecoration(
+            border: Border.all(),
+            borderRadius: const BorderRadius.all(
+              Radius.circular(20),
+            )),
         child: Center(child: Text(value)),
       ),
     );

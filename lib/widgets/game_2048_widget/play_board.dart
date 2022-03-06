@@ -4,6 +4,7 @@ import 'package:flutter_mini_games/app_state/theme/app_theme_cubit.dart';
 import 'package:flutter_mini_games/widgets/game_2048_widget/blocs/play_board_cubit.dart';
 import 'package:flutter_mini_games/widgets/game_2048_widget/blocs/play_board_state.dart';
 import 'package:flutter_mini_games/config/visual.dart';
+import 'package:flutter_mini_games/widgets/game_2048_widget/buttons/play_control_button.dart';
 import 'package:flutter_mini_games/widgets/game_2048_widget/buttons/play_control_buttons.dart';
 import 'package:flutter_mini_games/widgets/game_2048_widget/play_board_grid.dart';
 
@@ -33,7 +34,16 @@ class PlayBoard extends StatelessWidget {
 
               return Column(
                 children: [
+                  PlayControlButton(
+                    onTap: () => playBoardCubit.reset(),
+                    value: 'Reset',
+                  ),
+                  SizedBox(
+                    height: relativeToDesignPixels(20),
+                  ),
+                  const Text('Test', style: TextStyle(fontSize: 24),),
                   GestureDetector(
+                    // TODO fix swipes
                     // onHorizontalDragUpdate: playBoardCubit.onHorizontalSwipe,
                     // onVerticalDragUpdate: playBoardCubit.onVerticalSwipe,
                     child: Container(

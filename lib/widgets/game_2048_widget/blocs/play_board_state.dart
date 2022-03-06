@@ -1,3 +1,4 @@
+import 'package:flutter_mini_games/services/2048/play_2048_generator.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'play_board_state.freezed.dart';
@@ -7,7 +8,8 @@ class PlayBoardState with _$PlayBoardState {
   const PlayBoardState._();
 
   const factory PlayBoardState.initial({
-    required List<List<int?>> filledGrid,
+    required int width,
+    required int height,
   }) = InitialPlayBoardState;
 
   const factory PlayBoardState.swipeUp({
@@ -26,14 +28,22 @@ class PlayBoardState with _$PlayBoardState {
     required List<List<int?>> filledGrid,
   }) = SwipeRightPlayBoardState;
 
-  @override
-  List<List<int?>> get filledGrid => when(
-        initial: (state) => state,
-        swipeUp: (state) => state,
-        swipeDown: (state) => state,
-        swipeLeft: (state) => state,
-        swipeRight: (state) => state,
+  const factory PlayBoardState.reset() = ResetPlayBoardState;
+
+  List<List<int?>> get filledGrid => map(
+        initial: (state) => generateInitialGrid(
+          width: state.width,
+          height: state.height,
+        ),
+        swipeUp: (state) => state.filledGrid,
+        swipeDown: (state) => state.filledGrid,
+        swipeLeft: (state) => state.filledGrid,
+        swipeRight: (state) => state.filledGrid,
+        reset: (state) => generateInitialGrid(
+          width: state.filledGrid.first.length,
+          height: state.filledGrid.length,
+        ),
       );
 
-  int get gridSize => filledGrid.length;
+  int get gridHeight => filledGrid.length;
 }
