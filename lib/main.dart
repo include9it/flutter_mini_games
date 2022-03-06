@@ -6,7 +6,7 @@ import 'package:flutter_mini_games/screens/play_screen/play_screen.dart';
 import 'package:logger/logger.dart';
 
 void main() {
-  // Logger.level = Level.nothing; // TODO uncomment and change level if needed
+  Logger.level = Level.nothing; // TODO uncomment and change level if needed
 
   runApp(const MyApp());
 }
