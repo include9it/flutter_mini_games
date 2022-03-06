@@ -1,9 +1,79 @@
 import 'package:flutter_mini_games/services/2048/helpers/print_helper.dart';
+import 'package:flutter_mini_games/services/2048/play_2048_randomizer.dart';
 import 'package:flutter_mini_games/services/helpers/log_helper.dart';
 import 'package:logger/logger.dart';
 
 class Play2048Transition {
+  final RandomHelper _random = RandomHelper();
   final Logger _logger = getLogger(T: Play2048Transition);
+
+  List<List<int?>> moveRight({
+    required List<List<int?>> grid,
+  }) {
+    _logger.d('move grid right');
+
+    final List<List<int?>> updatedGrid = [];
+
+    for (var row in grid) {
+      updatedGrid.add(_moveRowRight(row: row));
+    }
+
+    printGrid(grid: grid);
+    return addRandom(grid: updatedGrid);
+  }
+
+  List<List<int?>> moveLeft({
+    required List<List<int?>> grid,
+  }) {
+    _logger.d('move grid left');
+
+    final List<List<int?>> mirroredGrid = _mirrorGrid(grid: grid);
+
+    final List<List<int?>> updatedGrid = _mirrorGrid(
+      grid: moveRight(grid: mirroredGrid),
+    );
+
+    printGrid(grid: updatedGrid);
+    return updatedGrid;
+  }
+
+  List<List<int?>> moveUp({
+    required List<List<int?>> grid,
+  }) {
+    _logger.d('move grid up');
+
+    final List<List<int?>> rotatedGrid = _rotateRight(grid: grid);
+
+    final List<List<int?>> updatedGrid = _rotateLeft(
+      grid: moveRight(grid: rotatedGrid),
+    );
+
+    printGrid(grid: updatedGrid);
+    return updatedGrid;
+  }
+
+  List<List<int?>> moveDown({
+    required List<List<int?>> grid,
+  }) {
+    _logger.d('move grid down');
+
+    final List<List<int?>> rotatedGrid = _rotateLeft(grid: grid);
+
+    final List<List<int?>> updatedGrid = _rotateRight(
+      grid: moveRight(grid: rotatedGrid),
+    );
+
+    printGrid(grid: updatedGrid);
+    return updatedGrid;
+  }
+
+  List<List<int?>> addRandom({
+    required List<List<int?>> grid,
+  }) {
+    _logger.d('add random');
+    printGrid(grid: grid);
+    return _random.putRandomLocation(grid: grid);
+  }
 
   List<int?> _fusion({
     int? firstCell,
@@ -57,18 +127,60 @@ class Play2048Transition {
     return sortedRow;
   }
 
-  List<List<int?>> moveRight({
+  List<List<int?>> _mirrorGrid({
     required List<List<int?>> grid,
   }) {
-    _logger.d('move grid right');
+    _logger.d('mirror grid');
 
     final List<List<int?>> updatedGrid = [];
 
     for (var row in grid) {
-      updatedGrid.add(_moveRowRight(row: row));
+      updatedGrid.add(row.reversed.toList());
     }
 
     printGrid(grid: grid);
+    return updatedGrid;
+  }
+
+  List<List<int?>> _rotateRight({
+    required List<List<int?>> grid,
+  }) {
+    _logger.d('rotate grid to right');
+
+    final List<List<int?>> updatedGrid = [];
+
+    for (int column = 0; column < grid.length; column++) {
+      final List<int?> updatedRow = [];
+
+      for (int index = grid.length - 1; index >= 0; index--) {
+        updatedRow.add(grid[index][column]);
+      }
+
+      updatedGrid.add(updatedRow);
+    }
+
+    printGrid(grid: updatedGrid);
+    return updatedGrid;
+  }
+
+  List<List<int?>> _rotateLeft({
+    required List<List<int?>> grid,
+  }) {
+    _logger.d('rotate grid to left');
+
+    final List<List<int?>> updatedGrid = [];
+
+    for (int column = grid.length - 1; column >= 0; column--) {
+      final List<int?> updatedRow = [];
+
+      for (int index = 0; index < grid.length; index++) {
+        updatedRow.add(grid[index][column]);
+      }
+
+      updatedGrid.add(updatedRow);
+    }
+
+    printGrid(grid: updatedGrid);
     return updatedGrid;
   }
 }

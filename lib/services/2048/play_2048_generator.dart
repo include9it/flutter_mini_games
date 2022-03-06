@@ -19,7 +19,7 @@ List<List<int?>> generateEmptyGrid({
 }
 
 List<List<int?>> generateInitialGrid() {
-  getLoggerByName('Global').d('generating initial grid...');
+  getLoggerByName('Global').d('Generating Initial Grid...');
 
   List<List<int?>> emptyGrid = generateEmptyGrid();
   return RandomHelper().putRandomLocation(grid: emptyGrid);
