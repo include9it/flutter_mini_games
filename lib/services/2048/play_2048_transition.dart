@@ -23,7 +23,7 @@ class Play2048Transition {
     }
 
     printGrid(grid: grid);
-    return isGridChanged(grid: grid, updatedGrid: updatedGrid)
+    return _isGridChanged(grid: grid, updatedGrid: updatedGrid)
         ? addRandom(grid: updatedGrid)
         : updatedGrid;
   }
@@ -81,7 +81,7 @@ class Play2048Transition {
     return _random.putRandomLocation(grid: grid);
   }
 
-  bool isGridChanged({
+  bool _isGridChanged({
     required List<List<int?>> grid,
     required List<List<int?>> updatedGrid,
   }) {
