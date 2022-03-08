@@ -20,7 +20,7 @@ class PlayGridTile extends StatelessWidget {
         return Container(
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: theme.attentionColor,
+            color: theme.secondaryOnLightColor,
             border: Border.all(
               color: theme.primaryOnLightColor,
             ),
