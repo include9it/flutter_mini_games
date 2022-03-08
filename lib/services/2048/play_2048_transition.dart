@@ -88,8 +88,8 @@ class Play2048Transition {
     int rowAmount = grid.length - 1;
     int rowSize = grid.first.length - 1;
 
-    while (rowAmount < 0) {
-      while (rowSize < 0) {
+    while (rowAmount > 0) {
+      while (rowSize > 0) {
         if (grid[rowAmount][rowSize] != updatedGrid[rowAmount][rowSize]) {
           return true;
         }
