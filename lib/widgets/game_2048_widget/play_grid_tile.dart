@@ -20,11 +20,11 @@ class PlayGridTile extends StatelessWidget {
         return Container(
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: theme.secondaryOnLightColor,
+            color: theme.primaryLightColor,
             border: Border.all(
-              color: theme.primaryOnLightColor,
+              color: theme.secondaryOnLightColor,
             ),
-            borderRadius: BorderRadius.circular(55),
+            borderRadius: BorderRadius.circular(20),
           ),
           child: value == null
               ? Container()

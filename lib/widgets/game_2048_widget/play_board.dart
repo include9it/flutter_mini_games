@@ -67,10 +67,11 @@ class PlayBoard extends StatelessWidget {
                       width: relativeToDesignPixels(255),
                       height: relativeToDesignPixels(255),
                       decoration: BoxDecoration(
-                        color: theme.primaryColor,
+                        color: theme.primaryLightColor,
                         border: Border.all(
-                          color: theme.primaryOnLightColor,
+                          color: theme.secondaryOnLightColor,
                         ),
+                        borderRadius: BorderRadius.circular(20),
                       ),
                       child: PlayBoardGrid(
                         grid: state.filledGrid,
