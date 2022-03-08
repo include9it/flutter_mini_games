@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mini_games/app_state/theme/app_theme_cubit.dart';
 
@@ -17,7 +18,7 @@ class PlayTile extends StatelessWidget {
         return Container(
           alignment: Alignment.center,
           decoration: BoxDecoration(
-            color: theme.primaryOnDarkColor,
+            color: colorize(),
             border: Border.all(
               color: theme.primaryOnLightColor,
             ),
@@ -27,5 +28,18 @@ class PlayTile extends StatelessWidget {
         );
       },
     );
+  }
+
+  Color colorize() {
+    int number = int.parse(value);
+
+    if (number < 32) {
+      return Colors.amberAccent;
+    } else if (number < 128) {
+      return Colors.orangeAccent;
+    } else if (number < 254) {
+      return Colors.red;
+    }
+    return Colors.white;
   }
 }
