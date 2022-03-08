@@ -10,9 +10,6 @@ class PlayBoardCubit extends Cubit<PlayBoardState> {
   final Play2048Transition _transition = Play2048Transition();
   final Logger _logger = getLogger(T: PlayBoardCubit);
 
-  // // Note: Sensitivity is integer used when you don't want to mess up vertical drag
-  // int sensitivity = 1;
-
   // grid: [
   //   [null, null, null, null],
   //   [null, null, null, null],
@@ -68,21 +65,4 @@ class PlayBoardCubit extends Cubit<PlayBoardState> {
       height: hasBig ? 6 : 4,
     ));
   }
-
-// TODO need to fix swipes!
-// void onHorizontalSwipe(DragUpdateDetails details) {
-//   if (details.delta.direction > sensitivity) {
-//     swipeLeft();
-//   } else if (details.delta.direction < -sensitivity) {
-//     swipeRight();
-//   }
-// }
-//
-// void onVerticalSwipe(DragUpdateDetails details) {
-//   if (details.delta.direction > sensitivity) {
-//     swipeDown();
-//   } else if (details.delta.direction < -sensitivity) {
-//     swipeUp();
-//   }
-// }
 }
