@@ -64,8 +64,9 @@ class PlayBoardCubit extends Cubit<PlayBoardState> {
     }
 
     emit(PlayBoardState.initial(
-        width: hasBig ? 6 : state.filledGrid.first.length,
-        height: hasBig ? 6 : state.gridHeight));
+      width: hasBig ? 6 : 4,
+      height: hasBig ? 6 : 4,
+    ));
   }
 
 // TODO need to fix swipes!
