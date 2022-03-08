@@ -33,13 +33,16 @@ class PlayTile extends StatelessWidget {
   Color colorize() {
     int number = int.parse(value);
 
-    if (number < 32) {
+    if (number < 16) {
+      return Colors.white;
+    } else if (number < 32) {
       return Colors.amberAccent;
     } else if (number < 128) {
       return Colors.orangeAccent;
     } else if (number < 254) {
       return Colors.red;
     }
+
     return Colors.white;
   }
 }
