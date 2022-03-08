@@ -56,7 +56,15 @@ class PlayBoardCubit extends Cubit<PlayBoardState> {
   void reset({bool hasBig = false}) {
     _logger.d('\t---!> Reset !!!');
 
-    if (state is InitialPlayBoardState) {
+    // if (state is InitialPlayBoardState) {
+    //   return;
+    // }
+
+    if(hasBig && state.gridHeight == 6) {
+      return;
+    }
+
+    if(!hasBig && state.gridHeight == 4) {
       return;
     }
 
