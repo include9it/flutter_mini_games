@@ -7,6 +7,10 @@ class Play2048Transition {
   final RandomHelper _random = RandomHelper();
   final Logger _logger = getLogger(T: Play2048Transition);
 
+  /// This is core method
+  /// it will be executed every swipe
+  /// It also includes generation of new random tile
+  ///
   List<List<int?>> moveRight({
     required List<List<int?>> grid,
   }) {
@@ -19,7 +23,9 @@ class Play2048Transition {
     }
 
     printGrid(grid: grid);
-    return addRandom(grid: updatedGrid);
+    return isGridChanged(grid: grid, updatedGrid: updatedGrid)
+        ? addRandom(grid: updatedGrid)
+        : updatedGrid;
   }
 
   List<List<int?>> moveLeft({
@@ -73,6 +79,29 @@ class Play2048Transition {
     _logger.d('add random');
     printGrid(grid: grid);
     return _random.putRandomLocation(grid: grid);
+  }
+
+  bool isGridChanged({
+    required List<List<int?>> grid,
+    required List<List<int?>> updatedGrid,
+  }) {
+    int rowAmount = grid.length - 1;
+    int rowSize = grid.first.length - 1;
+
+    while (rowAmount < 0) {
+      while (rowSize < 0) {
+        if (grid[rowAmount][rowSize] != updatedGrid[rowAmount][rowSize]) {
+          return true;
+        }
+
+        rowSize--;
+      }
+
+      rowSize = grid.first.length - 1;
+      rowAmount--;
+    }
+
+    return false;
   }
 
   List<int?> _fusion({
