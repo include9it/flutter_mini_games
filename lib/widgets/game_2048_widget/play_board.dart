@@ -34,14 +34,29 @@ class PlayBoard extends StatelessWidget {
 
               return Column(
                 children: [
-                  PlayControlButton(
-                    onTap: () => playBoardCubit.reset(),
-                    value: 'Reset',
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      PlayControlButton(
+                        onTap: () => playBoardCubit.reset(),
+                        value: '4x4',
+                      ),
+                      SizedBox(
+                        width: relativeToDesignPixels(15),
+                      ),
+                      PlayControlButton(
+                        onTap: () => playBoardCubit.reset(hasBig: true),
+                        value: '6x6',
+                      ),
+                    ],
                   ),
                   SizedBox(
                     height: relativeToDesignPixels(20),
                   ),
-                  const Text('Test', style: TextStyle(fontSize: 24),),
+                  const Text(
+                    'Test',
+                    style: TextStyle(fontSize: 24),
+                  ),
                   GestureDetector(
                     // TODO fix swipes
                     // onHorizontalDragUpdate: playBoardCubit.onHorizontalSwipe,

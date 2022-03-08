@@ -56,7 +56,7 @@ class PlayBoardCubit extends Cubit<PlayBoardState> {
     emit(PlayBoardState.swipeRight(filledGrid: update));
   }
 
-  void reset() {
+  void reset({bool hasBig = false}) {
     _logger.d('\t---!> Reset !!!');
 
     if (state is InitialPlayBoardState) {
@@ -64,7 +64,8 @@ class PlayBoardCubit extends Cubit<PlayBoardState> {
     }
 
     emit(PlayBoardState.initial(
-        width: state.filledGrid.first.length, height: state.gridHeight));
+        width: hasBig ? 6 : state.filledGrid.first.length,
+        height: hasBig ? 6 : state.gridHeight));
   }
 
 // TODO need to fix swipes!
