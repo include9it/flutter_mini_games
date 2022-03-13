@@ -11,10 +11,10 @@ class Play2048Transition {
   /// it will be executed every swipe
   /// It also includes generation of new random tile
   ///
-  List<List<int?>> moveRight({
+  List<List<int?>> transitionToRight({
     required List<List<int?>> grid,
   }) {
-    _logger.d('move grid right');
+    _logger.d('transition - - -> right');
 
     final List<List<int?>> updatedGrid = [];
 
@@ -22,7 +22,18 @@ class Play2048Transition {
       updatedGrid.add(_moveRowRight(row: row));
     }
 
-    printGrid(grid: grid);
+    printGrid(grid: updatedGrid);
+    return updatedGrid;
+  }
+
+  List<List<int?>> moveRight({
+    required List<List<int?>> grid,
+  }) {
+    _logger.d('move grid right');
+
+    final List<List<int?>> updatedGrid = transitionToRight(grid: grid);
+
+    printGrid(grid: updatedGrid);
     return _isGridChanged(grid: grid, updatedGrid: updatedGrid)
         ? addRandom(grid: updatedGrid)
         : updatedGrid;
@@ -36,11 +47,13 @@ class Play2048Transition {
     final List<List<int?>> mirroredGrid = _mirrorGrid(grid: grid);
 
     final List<List<int?>> updatedGrid = _mirrorGrid(
-      grid: moveRight(grid: mirroredGrid),
+      grid: transitionToRight(grid: mirroredGrid),
     );
 
     printGrid(grid: updatedGrid);
-    return updatedGrid;
+    return _isGridChanged(grid: grid, updatedGrid: updatedGrid)
+        ? addRandom(grid: updatedGrid)
+        : updatedGrid;
   }
 
   List<List<int?>> moveUp({
@@ -51,11 +64,13 @@ class Play2048Transition {
     final List<List<int?>> rotatedGrid = _rotateRight(grid: grid);
 
     final List<List<int?>> updatedGrid = _rotateLeft(
-      grid: moveRight(grid: rotatedGrid),
+      grid: transitionToRight(grid: rotatedGrid),
     );
 
     printGrid(grid: updatedGrid);
-    return updatedGrid;
+    return _isGridChanged(grid: grid, updatedGrid: updatedGrid)
+        ? addRandom(grid: updatedGrid)
+        : updatedGrid;
   }
 
   List<List<int?>> moveDown({
@@ -66,11 +81,13 @@ class Play2048Transition {
     final List<List<int?>> rotatedGrid = _rotateLeft(grid: grid);
 
     final List<List<int?>> updatedGrid = _rotateRight(
-      grid: moveRight(grid: rotatedGrid),
+      grid: transitionToRight(grid: rotatedGrid),
     );
 
     printGrid(grid: updatedGrid);
-    return updatedGrid;
+    return _isGridChanged(grid: grid, updatedGrid: updatedGrid)
+        ? addRandom(grid: updatedGrid)
+        : updatedGrid;
   }
 
   List<List<int?>> addRandom({
