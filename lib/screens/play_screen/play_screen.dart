@@ -1,28 +1,65 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_mini_games/screens/play_screen/blocs/play_screen_cubit.dart';
+import 'package:flutter_mini_games/widgets/game_2048_widget/blocs/play_board_cubit.dart';
+import 'package:flutter_mini_games/widgets/game_2048_widget/blocs/play_board_state.dart';
 import 'package:flutter_mini_games/widgets/game_2048_widget/play_board.dart';
+import 'package:flutter_mini_games/widgets/game_2048_widget/widgets/play_app_bar.dart';
+import 'package:flutter_mini_games/widgets/interaction/swipe_detector/swipe_detector.dart';
 import 'package:flutter_mini_games/widgets/play_scaffold/play_scaffold.dart';
 
 class PlayScreen extends StatelessWidget {
   static Size? screenSize;
+  final int width;
+  final int height;
 
-  const PlayScreen({Key? key}) : super(key: key);
+  const PlayScreen({
+    Key? key,
+    this.width = 4,
+    this.height = 4,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    PlayScreen.screenSize = MediaQuery.of(context).size;
+    PlayScreen.screenSize = MediaQuery
+        .of(context)
+        .size;
 
     return PlayScaffold(builder: (theme) {
       return BlocProvider(
-        create: (context) => PlayScreenCubit(),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              PlayBoard(),
-            ],
-          ),
+        create: (context) =>
+            PlayBoardCubit(
+              width: width,
+              height: height,
+            ),
+        child: BlocBuilder<PlayBoardCubit, PlayBoardState>(
+          builder: (context, state) {
+            final PlayBoardCubit playBoardCubit =
+            context.read<PlayBoardCubit>();
+            return Center(
+              child: Padding(
+                padding:
+                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
+                child: SwipeDetector(
+                  onSwipeUp: () => playBoardCubit.swipeUp(),
+                  onSwipeDown: () => playBoardCubit.swipeDown(),
+                  onSwipeLeft: () => playBoardCubit.swipeLeft(),
+                  onSwipeRight: () => playBoardCubit.swipeRight(),
+                  child: Column(
+                    children: const [
+                      Flexible(
+                        fit: FlexFit.tight,
+                        child: PlayAppBar(),
+                      ),
+                      Flexible(
+                        flex: 3,
+                        child: Center(child: PlayBoard()),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            );
+          },
         ),
       );
     });

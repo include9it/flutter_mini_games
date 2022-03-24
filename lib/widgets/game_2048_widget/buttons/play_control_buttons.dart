@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mini_games/config/visual.dart';
@@ -15,40 +14,49 @@ class PlayControlButtons extends StatelessWidget {
       builder: (context, state) {
         final PlayBoardCubit playBoardCubit = context.read<PlayBoardCubit>();
 
-        return Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            PlayControlButton(
-              onTap: () => playBoardCubit.swipeUp(),
-              value: 'Up',
-            ),
-            SizedBox(
-              height: relativeToDesignPixels(20),
-            ),
-            Row(
+        return Container(
+          decoration: BoxDecoration(
+            border: Border.all(color: Colors.black),
+            borderRadius: BorderRadius.circular(50),
+          ),
+          child: Padding(
+            padding: const EdgeInsets.all(4.0),
+            child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 PlayControlButton(
-                  onTap: () => playBoardCubit.swipeLeft(),
-                  value: 'Left',
+                  onTap: () => playBoardCubit.swipeUp(),
+                  value: 'Up',
                 ),
                 SizedBox(
-                  width: relativeToDesignPixels(120),
+                  height: relativeToDesignPixels(20),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    PlayControlButton(
+                      onTap: () => playBoardCubit.swipeLeft(),
+                      value: 'Left',
+                    ),
+                    SizedBox(
+                      width: relativeToDesignPixels(120),
+                    ),
+                    PlayControlButton(
+                      onTap: () => playBoardCubit.swipeRight(),
+                      value: 'Right',
+                    ),
+                  ],
+                ),
+                SizedBox(
+                  height: relativeToDesignPixels(20),
                 ),
                 PlayControlButton(
-                  onTap: () => playBoardCubit.swipeRight(),
-                  value: 'Right',
+                  onTap: () => playBoardCubit.swipeDown(),
+                  value: 'Down',
                 ),
               ],
             ),
-            SizedBox(
-              height: relativeToDesignPixels(20),
-            ),
-            PlayControlButton(
-              onTap: () => playBoardCubit.swipeDown(),
-              value: 'Down',
-            ),
-          ],
+          ),
         );
       },
     );

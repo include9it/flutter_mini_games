@@ -1,6 +1,4 @@
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_mini_games/services/2048/play_2048_generator.dart';
 import 'package:flutter_mini_games/services/2048/play_2048_transition.dart';
 import 'package:flutter_mini_games/services/helpers/log_helper.dart';
 import 'package:flutter_mini_games/widgets/game_2048_widget/blocs/play_board_state.dart';
@@ -60,11 +58,11 @@ class PlayBoardCubit extends Cubit<PlayBoardState> {
     //   return;
     // }
 
-    if(hasBig && state.gridHeight == 6) {
+    if (hasBig && state.gridHeight == 6) {
       return;
     }
 
-    if(!hasBig && state.gridHeight == 4) {
+    if (!hasBig && state.gridHeight == 4) {
       return;
     }
 
