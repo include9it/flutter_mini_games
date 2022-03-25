@@ -14,7 +14,7 @@ class PlayControlButtons extends StatelessWidget {
       builder: (context, state) {
         return Container(
           decoration: BoxDecoration(
-            border: Border.all(color: Colors.black54),
+            border: Border.all(color: Colors.black12),
             borderRadius: BorderRadius.circular(50),
           ),
           child: Padding(
@@ -30,6 +30,7 @@ class PlayControlButtons extends StatelessWidget {
                           swipeUp: (state) => Colors.black,
                           orElse: () => Colors.black12,
                         ),
+                        size: 45,
                         icon: Icons.keyboard_arrow_up,
                         onTap: () => ({}),
                         value: 'Up',
@@ -42,6 +43,7 @@ class PlayControlButtons extends StatelessWidget {
                           swipeDown: (state) => Colors.black,
                           orElse: () => Colors.black12,
                         ),
+                        size: 45,
                         icon: Icons.keyboard_arrow_down,
                         onTap: () => ({}),
                         value: 'Down',
@@ -57,6 +59,7 @@ class PlayControlButtons extends StatelessWidget {
                         swipeLeft: (state) => Colors.black,
                         orElse: () => Colors.black12,
                       ),
+                      size: 45,
                       icon: Icons.keyboard_arrow_left,
                       onTap: () => ({}),
                       value: 'Left',
@@ -69,6 +72,7 @@ class PlayControlButtons extends StatelessWidget {
                         swipeRight: (state) => Colors.black,
                         orElse: () => Colors.black12,
                       ),
+                      size: 45,
                       icon: Icons.keyboard_arrow_right_rounded,
                       onTap: () => ({}),
                       value: 'Right',

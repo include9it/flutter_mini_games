@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_mini_games/config/visual.dart';
 import 'package:flutter_mini_games/widgets/game_2048_widget/blocs/play_board_cubit.dart';
 import 'package:flutter_mini_games/widgets/game_2048_widget/blocs/play_board_state.dart';
 import 'package:flutter_mini_games/widgets/game_2048_widget/play_board.dart';
@@ -48,7 +49,13 @@ class PlayScreen extends StatelessWidget {
                         onSwipeDown: () => playBoardCubit.swipeDown(),
                         onSwipeLeft: () => playBoardCubit.swipeLeft(),
                         onSwipeRight: () => playBoardCubit.swipeRight(),
-                        child: const PlayBoard(),
+                        child: SizedBox(
+                          width: relativeToDesignPixels(255),
+                          height: relativeToDesignPixels(255),
+                          child: PlayBoard(
+                            grid: state.filledGrid,
+                          ),
+                        ),
                       ),
                     ),
                     // PlayAppBar(),

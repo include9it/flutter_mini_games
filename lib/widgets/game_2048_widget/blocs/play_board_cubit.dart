@@ -24,7 +24,10 @@ class PlayBoardCubit extends Cubit<PlayBoardState> {
 
     final update = _transition.moveUp(grid: state.filledGrid);
 
-    emit(PlayBoardState.swipeUp(filledGrid: update));
+    emit(PlayBoardState.swipeUp(
+      cachedGrid: state.filledGrid,
+      filledGrid: update,
+    ));
   }
 
   void swipeDown() {
@@ -32,7 +35,10 @@ class PlayBoardCubit extends Cubit<PlayBoardState> {
 
     final update = _transition.moveDown(grid: state.filledGrid);
 
-    emit(PlayBoardState.swipeDown(filledGrid: update));
+    emit(PlayBoardState.swipeDown(
+      cachedGrid: state.filledGrid,
+      filledGrid: update,
+    ));
   }
 
   void swipeLeft() {
@@ -40,7 +46,10 @@ class PlayBoardCubit extends Cubit<PlayBoardState> {
 
     final update = _transition.moveLeft(grid: state.filledGrid);
 
-    emit(PlayBoardState.swipeLeft(filledGrid: update));
+    emit(PlayBoardState.swipeLeft(
+      cachedGrid: state.filledGrid,
+      filledGrid: update,
+    ));
   }
 
   void swipeRight() {
@@ -48,7 +57,10 @@ class PlayBoardCubit extends Cubit<PlayBoardState> {
 
     final update = _transition.moveRight(grid: state.filledGrid);
 
-    emit(PlayBoardState.swipeRight(filledGrid: update));
+    emit(PlayBoardState.swipeRight(
+      cachedGrid: state.filledGrid,
+      filledGrid: update,
+    ));
   }
 
   void reset({bool hasBig = false}) {

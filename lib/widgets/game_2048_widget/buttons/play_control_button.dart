@@ -6,6 +6,7 @@ class PlayControlButton extends StatelessWidget {
   final String value;
   final IconData? icon;
   final Color? color;
+  final double size;
 
   const PlayControlButton({
     Key? key,
@@ -13,6 +14,7 @@ class PlayControlButton extends StatelessWidget {
     this.icon,
     required this.onTap,
     this.color,
+    this.size = 65,
   }) : super(key: key);
 
   @override
@@ -20,20 +22,25 @@ class PlayControlButton extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        height: relativeToDesignPixels(60),
-        width: relativeToDesignPixels(75),
+        width: relativeToDesignPixels(size),
         decoration: BoxDecoration(
           border: Border.all(color: color ?? Colors.black),
-          borderRadius: const BorderRadius.all(Radius.circular(20)),
+          borderRadius: const BorderRadius.all(Radius.circular(25)),
         ),
         child: Center(
           child: icon != null
               ? Icon(
                   icon,
-                  size: 65.0,
+                  size: size,
                   color: color,
                 )
-              : Text(value, style: TextStyle(color: color)),
+              : Padding(
+                padding: const EdgeInsets.all(4.0),
+                child: Text(
+                    value,
+                    style: TextStyle(color: color, fontSize: size * 0.3),
+                  ),
+              ),
         ),
       ),
     );

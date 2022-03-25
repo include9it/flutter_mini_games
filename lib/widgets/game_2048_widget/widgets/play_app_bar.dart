@@ -5,6 +5,7 @@ import 'package:flutter_mini_games/widgets/game_2048_widget/blocs/play_board_cub
 import 'package:flutter_mini_games/widgets/game_2048_widget/blocs/play_board_state.dart';
 import 'package:flutter_mini_games/widgets/game_2048_widget/buttons/play_control_button.dart';
 import 'package:flutter_mini_games/widgets/game_2048_widget/buttons/play_control_buttons.dart';
+import 'package:flutter_mini_games/widgets/game_2048_widget/play_board.dart';
 
 class PlayAppBar extends StatelessWidget {
   const PlayAppBar({Key? key}) : super(key: key);
@@ -16,7 +17,13 @@ class PlayAppBar extends StatelessWidget {
         final PlayBoardCubit playBoardCubit = context.read<PlayBoardCubit>();
         return Column(
           children: [
-            const PlayControlButtons(),
+            SizedBox(
+              width: relativeToDesignPixels(122),
+              height: relativeToDesignPixels(122),
+              child: PlayBoard(
+                grid: state.cachedGrid,
+              ),
+            ),
             SizedBox(
               height: relativeToDesignPixels(10),
             ),
@@ -43,6 +50,10 @@ class PlayAppBar extends StatelessWidget {
                 ),
               ],
             ),
+            SizedBox(
+              height: relativeToDesignPixels(20),
+            ),
+            const PlayControlButtons(),
           ],
         );
       },
