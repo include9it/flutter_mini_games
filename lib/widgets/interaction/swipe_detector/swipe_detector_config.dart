@@ -17,4 +17,14 @@ class SwipeConfig {
     this.horizontalSwipeMinDisplacement = 100.0,
     this.horizontalSwipeMinVelocity = 300.0,
   });
+
+  SwipeConfig.rapid()
+      : this(
+          verticalSwipeMaxWidthThreshold: 80.0,
+          verticalSwipeMinDisplacement: 50.0,
+          verticalSwipeMinVelocity: 300.0,
+          horizontalSwipeMaxHeightThreshold: 80.0,
+          horizontalSwipeMinDisplacement: 50.0,
+          horizontalSwipeMinVelocity: 300.0,
+        );
 }

@@ -6,6 +6,7 @@ import 'package:flutter_mini_games/widgets/game_2048_widget/blocs/play_board_sta
 import 'package:flutter_mini_games/widgets/game_2048_widget/play_board.dart';
 import 'package:flutter_mini_games/widgets/game_2048_widget/widgets/play_app_bar.dart';
 import 'package:flutter_mini_games/widgets/interaction/swipe_detector/swipe_detector.dart';
+import 'package:flutter_mini_games/widgets/interaction/swipe_detector/swipe_detector_config.dart';
 import 'package:flutter_mini_games/widgets/play_scaffold/play_scaffold.dart';
 
 class PlayScreen extends StatelessWidget {
@@ -51,6 +52,7 @@ class PlayScreen extends StatelessWidget {
                         onSwipeDown: () => playBoardCubit.swipeDown(),
                         onSwipeLeft: () => playBoardCubit.swipeLeft(),
                         onSwipeRight: () => playBoardCubit.swipeRight(),
+                        swipeConfig: SwipeConfig.rapid(),
                         child: SizedBox(
                           width: relativeToDesignPixels(255),
                           height: relativeToDesignPixels(255),
@@ -60,8 +62,6 @@ class PlayScreen extends StatelessWidget {
                         ),
                       ),
                     ),
-                    // PlayAppBar(),
-                    // Center(child: PlayBoard()),
                   ],
                 ),
               ),
