@@ -36,24 +36,24 @@ class PlayScreen extends StatelessWidget {
               child: Padding(
                 padding: const EdgeInsets.symmetric(
                     horizontal: 15.0, vertical: 15.0),
-                child: SwipeDetector(
-                  onSwipeUp: () => playBoardCubit.swipeUp(),
-                  onSwipeDown: () => playBoardCubit.swipeDown(),
-                  onSwipeLeft: () => playBoardCubit.swipeLeft(),
-                  onSwipeRight: () => playBoardCubit.swipeRight(),
-                  child: Column(
-                    children: const [
-                      Flexible(
-                        fit: FlexFit.tight,
-                        child: PlayAppBar(),
+                child: Column(
+                  children: [
+                    const Flexible(
+                      fit: FlexFit.tight,
+                      child: PlayAppBar(),
+                    ),
+                    Flexible(
+                      child: SwipeDetector(
+                        onSwipeUp: () => playBoardCubit.swipeUp(),
+                        onSwipeDown: () => playBoardCubit.swipeDown(),
+                        onSwipeLeft: () => playBoardCubit.swipeLeft(),
+                        onSwipeRight: () => playBoardCubit.swipeRight(),
+                        child: const PlayBoard(),
                       ),
-                      Flexible(
-                        child: PlayBoard(),
-                      ),
-                      // PlayAppBar(),
-                      // Center(child: PlayBoard()),
-                    ],
-                  ),
+                    ),
+                    // PlayAppBar(),
+                    // Center(child: PlayBoard()),
+                  ],
                 ),
               ),
             );
