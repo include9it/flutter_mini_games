@@ -17,10 +17,9 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$PlayBoardStateTearOff {
   const _$PlayBoardStateTearOff();
 
-  InitialPlayBoardState initial({required int width, required int height}) {
+  InitialPlayBoardState initial({required List<List<int?>> filledGrid}) {
     return InitialPlayBoardState(
-      width: width,
-      height: height,
+      filledGrid: filledGrid,
     );
   }
 
@@ -66,9 +65,11 @@ const $PlayBoardState = _$PlayBoardStateTearOff();
 
 /// @nodoc
 mixin _$PlayBoardState {
+  List<List<int?>> get filledGrid => throw _privateConstructorUsedError;
+
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int width, int height) initial,
+    required TResult Function(List<List<int?>> filledGrid) initial,
     required TResult Function(
             List<List<int?>> filledGrid, List<List<int?>> cachedGrid)
         swipeUp,
@@ -85,7 +86,7 @@ mixin _$PlayBoardState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int width, int height)? initial,
+    TResult Function(List<List<int?>> filledGrid)? initial,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
         swipeUp,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
@@ -98,7 +99,7 @@ mixin _$PlayBoardState {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int width, int height)? initial,
+    TResult Function(List<List<int?>> filledGrid)? initial,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
         swipeUp,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
@@ -138,6 +139,10 @@ mixin _$PlayBoardState {
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
+
+  @JsonKey(ignore: true)
+  $PlayBoardStateCopyWith<PlayBoardState> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -145,6 +150,7 @@ abstract class $PlayBoardStateCopyWith<$Res> {
   factory $PlayBoardStateCopyWith(
           PlayBoardState value, $Res Function(PlayBoardState) then) =
       _$PlayBoardStateCopyWithImpl<$Res>;
+  $Res call({List<List<int?>> filledGrid});
 }
 
 /// @nodoc
@@ -155,14 +161,28 @@ class _$PlayBoardStateCopyWithImpl<$Res>
   final PlayBoardState _value;
   // ignore: unused_field
   final $Res Function(PlayBoardState) _then;
+
+  @override
+  $Res call({
+    Object? filledGrid = freezed,
+  }) {
+    return _then(_value.copyWith(
+      filledGrid: filledGrid == freezed
+          ? _value.filledGrid
+          : filledGrid // ignore: cast_nullable_to_non_nullable
+              as List<List<int?>>,
+    ));
+  }
 }
 
 /// @nodoc
-abstract class $InitialPlayBoardStateCopyWith<$Res> {
+abstract class $InitialPlayBoardStateCopyWith<$Res>
+    implements $PlayBoardStateCopyWith<$Res> {
   factory $InitialPlayBoardStateCopyWith(InitialPlayBoardState value,
           $Res Function(InitialPlayBoardState) then) =
       _$InitialPlayBoardStateCopyWithImpl<$Res>;
-  $Res call({int width, int height});
+  @override
+  $Res call({List<List<int?>> filledGrid});
 }
 
 /// @nodoc
@@ -178,18 +198,13 @@ class _$InitialPlayBoardStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? width = freezed,
-    Object? height = freezed,
+    Object? filledGrid = freezed,
   }) {
     return _then(InitialPlayBoardState(
-      width: width == freezed
-          ? _value.width
-          : width // ignore: cast_nullable_to_non_nullable
-              as int,
-      height: height == freezed
-          ? _value.height
-          : height // ignore: cast_nullable_to_non_nullable
-              as int,
+      filledGrid: filledGrid == freezed
+          ? _value.filledGrid
+          : filledGrid // ignore: cast_nullable_to_non_nullable
+              as List<List<int?>>,
     ));
   }
 }
@@ -197,17 +212,14 @@ class _$InitialPlayBoardStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$InitialPlayBoardState extends InitialPlayBoardState {
-  const _$InitialPlayBoardState({required this.width, required this.height})
-      : super._();
+  const _$InitialPlayBoardState({required this.filledGrid}) : super._();
 
   @override
-  final int width;
-  @override
-  final int height;
+  final List<List<int?>> filledGrid;
 
   @override
   String toString() {
-    return 'PlayBoardState.initial(width: $width, height: $height)';
+    return 'PlayBoardState.initial(filledGrid: $filledGrid)';
   }
 
   @override
@@ -215,15 +227,13 @@ class _$InitialPlayBoardState extends InitialPlayBoardState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is InitialPlayBoardState &&
-            const DeepCollectionEquality().equals(other.width, width) &&
-            const DeepCollectionEquality().equals(other.height, height));
+            const DeepCollectionEquality()
+                .equals(other.filledGrid, filledGrid));
   }
 
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(width),
-      const DeepCollectionEquality().hash(height));
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(filledGrid));
 
   @JsonKey(ignore: true)
   @override
@@ -234,7 +244,7 @@ class _$InitialPlayBoardState extends InitialPlayBoardState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int width, int height) initial,
+    required TResult Function(List<List<int?>> filledGrid) initial,
     required TResult Function(
             List<List<int?>> filledGrid, List<List<int?>> cachedGrid)
         swipeUp,
@@ -248,13 +258,13 @@ class _$InitialPlayBoardState extends InitialPlayBoardState {
             List<List<int?>> filledGrid, List<List<int?>> cachedGrid)
         swipeRight,
   }) {
-    return initial(width, height);
+    return initial(filledGrid);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int width, int height)? initial,
+    TResult Function(List<List<int?>> filledGrid)? initial,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
         swipeUp,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
@@ -264,13 +274,13 @@ class _$InitialPlayBoardState extends InitialPlayBoardState {
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
         swipeRight,
   }) {
-    return initial?.call(width, height);
+    return initial?.call(filledGrid);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int width, int height)? initial,
+    TResult Function(List<List<int?>> filledGrid)? initial,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
         swipeUp,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
@@ -282,7 +292,7 @@ class _$InitialPlayBoardState extends InitialPlayBoardState {
     required TResult orElse(),
   }) {
     if (initial != null) {
-      return initial(width, height);
+      return initial(filledGrid);
     }
     return orElse();
   }
@@ -329,22 +339,25 @@ class _$InitialPlayBoardState extends InitialPlayBoardState {
 }
 
 abstract class InitialPlayBoardState extends PlayBoardState {
-  const factory InitialPlayBoardState(
-      {required int width, required int height}) = _$InitialPlayBoardState;
+  const factory InitialPlayBoardState({required List<List<int?>> filledGrid}) =
+      _$InitialPlayBoardState;
   const InitialPlayBoardState._() : super._();
 
-  int get width;
-  int get height;
+  @override
+  List<List<int?>> get filledGrid;
+  @override
   @JsonKey(ignore: true)
   $InitialPlayBoardStateCopyWith<InitialPlayBoardState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SwipeUpPlayBoardStateCopyWith<$Res> {
+abstract class $SwipeUpPlayBoardStateCopyWith<$Res>
+    implements $PlayBoardStateCopyWith<$Res> {
   factory $SwipeUpPlayBoardStateCopyWith(SwipeUpPlayBoardState value,
           $Res Function(SwipeUpPlayBoardState) then) =
       _$SwipeUpPlayBoardStateCopyWithImpl<$Res>;
+  @override
   $Res call({List<List<int?>> filledGrid, List<List<int?>> cachedGrid});
 }
 
@@ -420,7 +433,7 @@ class _$SwipeUpPlayBoardState extends SwipeUpPlayBoardState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int width, int height) initial,
+    required TResult Function(List<List<int?>> filledGrid) initial,
     required TResult Function(
             List<List<int?>> filledGrid, List<List<int?>> cachedGrid)
         swipeUp,
@@ -440,7 +453,7 @@ class _$SwipeUpPlayBoardState extends SwipeUpPlayBoardState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int width, int height)? initial,
+    TResult Function(List<List<int?>> filledGrid)? initial,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
         swipeUp,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
@@ -456,7 +469,7 @@ class _$SwipeUpPlayBoardState extends SwipeUpPlayBoardState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int width, int height)? initial,
+    TResult Function(List<List<int?>> filledGrid)? initial,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
         swipeUp,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
@@ -520,18 +533,22 @@ abstract class SwipeUpPlayBoardState extends PlayBoardState {
       required List<List<int?>> cachedGrid}) = _$SwipeUpPlayBoardState;
   const SwipeUpPlayBoardState._() : super._();
 
+  @override
   List<List<int?>> get filledGrid;
   List<List<int?>> get cachedGrid;
+  @override
   @JsonKey(ignore: true)
   $SwipeUpPlayBoardStateCopyWith<SwipeUpPlayBoardState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SwipeDownPlayBoardStateCopyWith<$Res> {
+abstract class $SwipeDownPlayBoardStateCopyWith<$Res>
+    implements $PlayBoardStateCopyWith<$Res> {
   factory $SwipeDownPlayBoardStateCopyWith(SwipeDownPlayBoardState value,
           $Res Function(SwipeDownPlayBoardState) then) =
       _$SwipeDownPlayBoardStateCopyWithImpl<$Res>;
+  @override
   $Res call({List<List<int?>> filledGrid, List<List<int?>> cachedGrid});
 }
 
@@ -607,7 +624,7 @@ class _$SwipeDownPlayBoardState extends SwipeDownPlayBoardState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int width, int height) initial,
+    required TResult Function(List<List<int?>> filledGrid) initial,
     required TResult Function(
             List<List<int?>> filledGrid, List<List<int?>> cachedGrid)
         swipeUp,
@@ -627,7 +644,7 @@ class _$SwipeDownPlayBoardState extends SwipeDownPlayBoardState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int width, int height)? initial,
+    TResult Function(List<List<int?>> filledGrid)? initial,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
         swipeUp,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
@@ -643,7 +660,7 @@ class _$SwipeDownPlayBoardState extends SwipeDownPlayBoardState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int width, int height)? initial,
+    TResult Function(List<List<int?>> filledGrid)? initial,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
         swipeUp,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
@@ -707,18 +724,22 @@ abstract class SwipeDownPlayBoardState extends PlayBoardState {
       required List<List<int?>> cachedGrid}) = _$SwipeDownPlayBoardState;
   const SwipeDownPlayBoardState._() : super._();
 
+  @override
   List<List<int?>> get filledGrid;
   List<List<int?>> get cachedGrid;
+  @override
   @JsonKey(ignore: true)
   $SwipeDownPlayBoardStateCopyWith<SwipeDownPlayBoardState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SwipeLeftPlayBoardStateCopyWith<$Res> {
+abstract class $SwipeLeftPlayBoardStateCopyWith<$Res>
+    implements $PlayBoardStateCopyWith<$Res> {
   factory $SwipeLeftPlayBoardStateCopyWith(SwipeLeftPlayBoardState value,
           $Res Function(SwipeLeftPlayBoardState) then) =
       _$SwipeLeftPlayBoardStateCopyWithImpl<$Res>;
+  @override
   $Res call({List<List<int?>> filledGrid, List<List<int?>> cachedGrid});
 }
 
@@ -794,7 +815,7 @@ class _$SwipeLeftPlayBoardState extends SwipeLeftPlayBoardState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int width, int height) initial,
+    required TResult Function(List<List<int?>> filledGrid) initial,
     required TResult Function(
             List<List<int?>> filledGrid, List<List<int?>> cachedGrid)
         swipeUp,
@@ -814,7 +835,7 @@ class _$SwipeLeftPlayBoardState extends SwipeLeftPlayBoardState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int width, int height)? initial,
+    TResult Function(List<List<int?>> filledGrid)? initial,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
         swipeUp,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
@@ -830,7 +851,7 @@ class _$SwipeLeftPlayBoardState extends SwipeLeftPlayBoardState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int width, int height)? initial,
+    TResult Function(List<List<int?>> filledGrid)? initial,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
         swipeUp,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
@@ -894,18 +915,22 @@ abstract class SwipeLeftPlayBoardState extends PlayBoardState {
       required List<List<int?>> cachedGrid}) = _$SwipeLeftPlayBoardState;
   const SwipeLeftPlayBoardState._() : super._();
 
+  @override
   List<List<int?>> get filledGrid;
   List<List<int?>> get cachedGrid;
+  @override
   @JsonKey(ignore: true)
   $SwipeLeftPlayBoardStateCopyWith<SwipeLeftPlayBoardState> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $SwipeRightPlayBoardStateCopyWith<$Res> {
+abstract class $SwipeRightPlayBoardStateCopyWith<$Res>
+    implements $PlayBoardStateCopyWith<$Res> {
   factory $SwipeRightPlayBoardStateCopyWith(SwipeRightPlayBoardState value,
           $Res Function(SwipeRightPlayBoardState) then) =
       _$SwipeRightPlayBoardStateCopyWithImpl<$Res>;
+  @override
   $Res call({List<List<int?>> filledGrid, List<List<int?>> cachedGrid});
 }
 
@@ -982,7 +1007,7 @@ class _$SwipeRightPlayBoardState extends SwipeRightPlayBoardState {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(int width, int height) initial,
+    required TResult Function(List<List<int?>> filledGrid) initial,
     required TResult Function(
             List<List<int?>> filledGrid, List<List<int?>> cachedGrid)
         swipeUp,
@@ -1002,7 +1027,7 @@ class _$SwipeRightPlayBoardState extends SwipeRightPlayBoardState {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int width, int height)? initial,
+    TResult Function(List<List<int?>> filledGrid)? initial,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
         swipeUp,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
@@ -1018,7 +1043,7 @@ class _$SwipeRightPlayBoardState extends SwipeRightPlayBoardState {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int width, int height)? initial,
+    TResult Function(List<List<int?>> filledGrid)? initial,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
         swipeUp,
     TResult Function(List<List<int?>> filledGrid, List<List<int?>> cachedGrid)?
@@ -1082,8 +1107,10 @@ abstract class SwipeRightPlayBoardState extends PlayBoardState {
       required List<List<int?>> cachedGrid}) = _$SwipeRightPlayBoardState;
   const SwipeRightPlayBoardState._() : super._();
 
+  @override
   List<List<int?>> get filledGrid;
   List<List<int?>> get cachedGrid;
+  @override
   @JsonKey(ignore: true)
   $SwipeRightPlayBoardStateCopyWith<SwipeRightPlayBoardState> get copyWith =>
       throw _privateConstructorUsedError;

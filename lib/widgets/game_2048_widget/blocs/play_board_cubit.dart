@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:flutter_mini_games/services/2048/play_2048_generator.dart';
 import 'package:flutter_mini_games/services/2048/play_2048_transition.dart';
 import 'package:flutter_mini_games/services/helpers/log_helper.dart';
 import 'package:flutter_mini_games/widgets/game_2048_widget/blocs/play_board_state.dart';
@@ -17,7 +18,9 @@ class PlayBoardCubit extends Cubit<PlayBoardState> {
   PlayBoardCubit({
     required int width,
     required int height,
-  }) : super(PlayBoardState.initial(width: width, height: height));
+  }) : super(PlayBoardState.initial(
+          filledGrid: generateInitialGrid(width: width, height: height),
+        ));
 
   void swipeUp() {
     _logger.d('<------ swipe UP');
@@ -79,8 +82,10 @@ class PlayBoardCubit extends Cubit<PlayBoardState> {
     }
 
     emit(PlayBoardState.initial(
-      width: hasBig ? 6 : 4,
-      height: hasBig ? 6 : 4,
+      filledGrid: generateInitialGrid(
+        width: hasBig ? 6 : 4,
+        height: hasBig ? 6 : 4,
+      ),
     ));
   }
 }
