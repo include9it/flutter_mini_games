@@ -7,11 +7,75 @@ class Play2048Transition {
   final RandomHelper _random = RandomHelper();
   final Logger _logger = getLogger(T: Play2048Transition);
 
+  List<List<int?>> moveRight({
+    required List<List<int?>> grid,
+  }) {
+    _logger.d('move grid right');
+
+    final List<List<int?>> updatedGrid = _transitionToRight(grid: grid);
+
+    printGrid(grid: updatedGrid);
+    return _isGridChanged(grid: grid, updatedGrid: updatedGrid)
+        ? _addRandom(grid: updatedGrid)
+        : updatedGrid;
+  }
+
+  List<List<int?>> moveLeft({
+    required List<List<int?>> grid,
+  }) {
+    _logger.d('move grid left');
+
+    final List<List<int?>> mirroredGrid = _mirrorGrid(grid: grid);
+
+    final List<List<int?>> updatedGrid = _mirrorGrid(
+      grid: _transitionToRight(grid: mirroredGrid),
+    );
+
+    printGrid(grid: updatedGrid);
+    return _isGridChanged(grid: grid, updatedGrid: updatedGrid)
+        ? _addRandom(grid: updatedGrid)
+        : updatedGrid;
+  }
+
+  List<List<int?>> moveUp({
+    required List<List<int?>> grid,
+  }) {
+    _logger.d('move grid up');
+
+    final List<List<int?>> rotatedGrid = _rotateRight(grid: grid);
+
+    final List<List<int?>> updatedGrid = _rotateLeft(
+      grid: _transitionToRight(grid: rotatedGrid),
+    );
+
+    printGrid(grid: updatedGrid);
+    return _isGridChanged(grid: grid, updatedGrid: updatedGrid)
+        ? _addRandom(grid: updatedGrid)
+        : updatedGrid;
+  }
+
+  List<List<int?>> moveDown({
+    required List<List<int?>> grid,
+  }) {
+    _logger.d('move grid down');
+
+    final List<List<int?>> rotatedGrid = _rotateLeft(grid: grid);
+
+    final List<List<int?>> updatedGrid = _rotateRight(
+      grid: _transitionToRight(grid: rotatedGrid),
+    );
+
+    printGrid(grid: updatedGrid);
+    return _isGridChanged(grid: grid, updatedGrid: updatedGrid)
+        ? _addRandom(grid: updatedGrid)
+        : updatedGrid;
+  }
+
   /// This is core method
   /// it will be executed every swipe
   /// It also includes generation of new random tile
   ///
-  List<List<int?>> transitionToRight({
+  List<List<int?>> _transitionToRight({
     required List<List<int?>> grid,
   }) {
     _logger.d('transition - - -> right');
@@ -26,71 +90,7 @@ class Play2048Transition {
     return updatedGrid;
   }
 
-  List<List<int?>> moveRight({
-    required List<List<int?>> grid,
-  }) {
-    _logger.d('move grid right');
-
-    final List<List<int?>> updatedGrid = transitionToRight(grid: grid);
-
-    printGrid(grid: updatedGrid);
-    return _isGridChanged(grid: grid, updatedGrid: updatedGrid)
-        ? addRandom(grid: updatedGrid)
-        : updatedGrid;
-  }
-
-  List<List<int?>> moveLeft({
-    required List<List<int?>> grid,
-  }) {
-    _logger.d('move grid left');
-
-    final List<List<int?>> mirroredGrid = _mirrorGrid(grid: grid);
-
-    final List<List<int?>> updatedGrid = _mirrorGrid(
-      grid: transitionToRight(grid: mirroredGrid),
-    );
-
-    printGrid(grid: updatedGrid);
-    return _isGridChanged(grid: grid, updatedGrid: updatedGrid)
-        ? addRandom(grid: updatedGrid)
-        : updatedGrid;
-  }
-
-  List<List<int?>> moveUp({
-    required List<List<int?>> grid,
-  }) {
-    _logger.d('move grid up');
-
-    final List<List<int?>> rotatedGrid = _rotateRight(grid: grid);
-
-    final List<List<int?>> updatedGrid = _rotateLeft(
-      grid: transitionToRight(grid: rotatedGrid),
-    );
-
-    printGrid(grid: updatedGrid);
-    return _isGridChanged(grid: grid, updatedGrid: updatedGrid)
-        ? addRandom(grid: updatedGrid)
-        : updatedGrid;
-  }
-
-  List<List<int?>> moveDown({
-    required List<List<int?>> grid,
-  }) {
-    _logger.d('move grid down');
-
-    final List<List<int?>> rotatedGrid = _rotateLeft(grid: grid);
-
-    final List<List<int?>> updatedGrid = _rotateRight(
-      grid: transitionToRight(grid: rotatedGrid),
-    );
-
-    printGrid(grid: updatedGrid);
-    return _isGridChanged(grid: grid, updatedGrid: updatedGrid)
-        ? addRandom(grid: updatedGrid)
-        : updatedGrid;
-  }
-
-  List<List<int?>> addRandom({
+  List<List<int?>> _addRandom({
     required List<List<int?>> grid,
   }) {
     _logger.d('add random');
@@ -105,8 +105,8 @@ class Play2048Transition {
     int rowAmount = grid.length - 1;
     int rowSize = grid.first.length - 1;
 
-    while (rowAmount > 0) {
-      while (rowSize > 0) {
+    while (rowAmount > -1) {
+      while (rowSize > -1) {
         if (grid[rowAmount][rowSize] != updatedGrid[rowAmount][rowSize]) {
           return true;
         }

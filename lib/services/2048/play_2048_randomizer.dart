@@ -52,8 +52,8 @@ class RandomHelper {
     required int columnSize,
     required int rowSize,
   }) {
-    final int x = _random.nextInt(columnSize - 1);
-    final int y = _random.nextInt(rowSize - 1);
+    final int x = _random.nextInt(columnSize);
+    final int y = _random.nextInt(rowSize);
 
     return [x, y];
   }
