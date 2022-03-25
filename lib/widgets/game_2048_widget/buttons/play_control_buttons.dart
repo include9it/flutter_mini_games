@@ -22,54 +22,57 @@ class PlayControlButtons extends StatelessWidget {
             child: Stack(
               alignment: AlignmentDirectional.center,
               children: [
-              Center(
-                child: Column(children: [
-                  PlayControlButton(
-                    color: state.maybeMap(
-                      swipeUp: (state) => Colors.black,
-                      orElse: () => Colors.transparent,
+                Center(
+                  child: Column(
+                    children: [
+                      PlayControlButton(
+                        color: state.maybeMap(
+                          swipeUp: (state) => Colors.black,
+                          orElse: () => Colors.transparent,
+                        ),
+                        onTap: () => ({}),
+                        value: 'Up',
+                      ),
+                      SizedBox(
+                        height: relativeToDesignPixels(20),
+                      ),
+                      PlayControlButton(
+                        color: state.maybeMap(
+                          swipeDown: (state) => Colors.black,
+                          orElse: () => Colors.transparent,
+                        ),
+                        onTap: () => ({}),
+                        value: 'Down',
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    PlayControlButton(
+                      color: state.maybeMap(
+                        swipeLeft: (state) => Colors.black,
+                        orElse: () => Colors.transparent,
+                      ),
+                      onTap: () => ({}),
+                      value: 'Left',
                     ),
-                    onTap: () => ({}), //playBoardCubit.swipeUp(),
-                    value: 'Up',
-                  ),
-                  SizedBox(
-                    height: relativeToDesignPixels(20),
-                  ),
-                  PlayControlButton(
-                    color: state.maybeMap(
-                      swipeDown: (state) => Colors.black,
-                      orElse: () => Colors.transparent,
+                    SizedBox(
+                      width: relativeToDesignPixels(40),
                     ),
-                    onTap: () => ({}), //playBoardCubit.swipeDown(),
-                    value: 'Down',
-                  ),
-                ],),
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  PlayControlButton(
-                    color: state.maybeMap(
-                      swipeLeft: (state) => Colors.black,
-                      orElse: () => Colors.transparent,
+                    PlayControlButton(
+                      color: state.maybeMap(
+                        swipeRight: (state) => Colors.black,
+                        orElse: () => Colors.transparent,
+                      ),
+                      onTap: () => ({}),
+                      value: 'Right',
                     ),
-                    onTap: () => ({}), //playBoardCubit.swipeLeft(),
-                    value: 'Left',
-                  ),
-                  SizedBox(
-                    width: relativeToDesignPixels(40),
-                  ),
-                  PlayControlButton(
-                    color: state.maybeMap(
-                      swipeRight: (state) => Colors.black,
-                      orElse: () => Colors.transparent,
-                    ),
-                    onTap: () => ({}), //playBoardCubit.swipeRight(),
-                    value: 'Right',
-                  ),
-                ],
-              ),
-            ],),
+                  ],
+                ),
+              ],
+            ),
           ),
         );
       },
