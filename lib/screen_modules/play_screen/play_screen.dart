@@ -40,10 +40,12 @@ class PlayScreen extends StatelessWidget {
                 child: Column(
                   children: [
                     const Flexible(
-                      fit: FlexFit.tight,
+                      flex: 5,
+                      fit: FlexFit.loose,
                       child: PlayAppBar(),
                     ),
                     Flexible(
+                      flex: 4,
                       child: SwipeDetector(
                         onSwipeUp: () => playBoardCubit.swipeUp(),
                         onSwipeDown: () => playBoardCubit.swipeDown(),
