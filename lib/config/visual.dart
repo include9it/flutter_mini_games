@@ -1,4 +1,4 @@
-import 'package:flutter_mini_games/screens/play_screen/play_screen.dart';
+import 'package:flutter_mini_games/screen_modules/play_screen/play_screen.dart';
 
 double relativeToDesignPixels(double multiplier) =>
     PlayScreen.screenSize!.width / 360 * multiplier;
