@@ -28,8 +28,9 @@ class PlayControlButtons extends StatelessWidget {
                       PlayControlButton(
                         color: state.maybeMap(
                           swipeUp: (state) => Colors.black,
-                          orElse: () => Colors.transparent,
+                          orElse: () => Colors.black12,
                         ),
+                        icon: Icons.keyboard_arrow_up,
                         onTap: () => ({}),
                         value: 'Up',
                       ),
@@ -39,8 +40,9 @@ class PlayControlButtons extends StatelessWidget {
                       PlayControlButton(
                         color: state.maybeMap(
                           swipeDown: (state) => Colors.black,
-                          orElse: () => Colors.transparent,
+                          orElse: () => Colors.black12,
                         ),
+                        icon: Icons.keyboard_arrow_down,
                         onTap: () => ({}),
                         value: 'Down',
                       ),
@@ -53,8 +55,9 @@ class PlayControlButtons extends StatelessWidget {
                     PlayControlButton(
                       color: state.maybeMap(
                         swipeLeft: (state) => Colors.black,
-                        orElse: () => Colors.transparent,
+                        orElse: () => Colors.black12,
                       ),
+                      icon: Icons.keyboard_arrow_left,
                       onTap: () => ({}),
                       value: 'Left',
                     ),
@@ -64,8 +67,9 @@ class PlayControlButtons extends StatelessWidget {
                     PlayControlButton(
                       color: state.maybeMap(
                         swipeRight: (state) => Colors.black,
-                        orElse: () => Colors.transparent,
+                        orElse: () => Colors.black12,
                       ),
+                      icon: Icons.keyboard_arrow_right_rounded,
                       onTap: () => ({}),
                       value: 'Right',
                     ),
