@@ -9,12 +9,6 @@ class PlayBoardCubit extends Cubit<PlayBoardState> {
   final Play2048Transition _transition = Play2048Transition();
   final Logger _logger = getLogger(T: PlayBoardCubit);
 
-  // grid: [
-  //   [null, null, null, null],
-  //   [null, null, null, null],
-  //   [null, null, null, null],
-  //   [4, null, null, 2]
-  // ],
   PlayBoardCubit({
     required int width,
     required int height,
@@ -68,18 +62,6 @@ class PlayBoardCubit extends Cubit<PlayBoardState> {
 
   void reset({bool hasBig = false}) {
     _logger.d('\t---!> Reset !!!');
-
-    // if (state is InitialPlayBoardState) {
-    //   return;
-    // }
-
-    if (hasBig && state.gridHeight == 6) {
-      return;
-    }
-
-    if (!hasBig && state.gridHeight == 4) {
-      return;
-    }
 
     emit(PlayBoardState.initial(
       filledGrid: generateInitialGrid(
