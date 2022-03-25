@@ -20,25 +20,22 @@ class PlayScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    PlayScreen.screenSize = MediaQuery
-        .of(context)
-        .size;
+    PlayScreen.screenSize = MediaQuery.of(context).size;
 
     return PlayScaffold(builder: (theme) {
       return BlocProvider(
-        create: (context) =>
-            PlayBoardCubit(
-              width: width,
-              height: height,
-            ),
+        create: (context) => PlayBoardCubit(
+          width: width,
+          height: height,
+        ),
         child: BlocBuilder<PlayBoardCubit, PlayBoardState>(
           builder: (context, state) {
             final PlayBoardCubit playBoardCubit =
-            context.read<PlayBoardCubit>();
+                context.read<PlayBoardCubit>();
             return Center(
               child: Padding(
-                padding:
-                const EdgeInsets.symmetric(horizontal: 15.0, vertical: 15.0),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: 15.0, vertical: 15.0),
                 child: SwipeDetector(
                   onSwipeUp: () => playBoardCubit.swipeUp(),
                   onSwipeDown: () => playBoardCubit.swipeDown(),
@@ -51,9 +48,10 @@ class PlayScreen extends StatelessWidget {
                         child: PlayAppBar(),
                       ),
                       Flexible(
-                        flex: 3,
-                        child: Center(child: PlayBoard()),
+                        child: PlayBoard(),
                       ),
+                      // PlayAppBar(),
+                      // Center(child: PlayBoard()),
                     ],
                   ),
                 ),
