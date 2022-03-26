@@ -4,6 +4,7 @@ import 'package:flutter_mini_games/widgets/game_2048_widget/buttons/play_control
 import 'package:flutter_mini_games/widgets/play_scaffold/play_scaffold.dart';
 
 class HomeScreen extends StatelessWidget {
+  static Size? screenSize;
   late final NavigationManager _navigationManager;
 
   HomeScreen({
@@ -15,6 +16,8 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    HomeScreen.screenSize = MediaQuery.of(context).size;
+
     return PlayScaffold(
       builder: (theme) {
         return Center(

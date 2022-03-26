@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mini_games/main.dart';
 import 'package:flutter_mini_games/screen_modules/home_screen/home_screen.dart';
-import 'package:flutter_mini_games/screen_modules/play_screen/play_screen.dart';
+import 'package:flutter_mini_games/screen_modules/merge_screen/merge_screen.dart';
 
 class NavigationManager {
   BuildContext get _context => navigatorKey.currentState!.context;
@@ -37,7 +37,7 @@ class NavigationManager {
     Navigator.push(
         _context,
         MaterialPageRoute(
-          builder: (_) => const PlayScreen(),
+          builder: (_) => const MergeScreen(),
         ));
   }
 }

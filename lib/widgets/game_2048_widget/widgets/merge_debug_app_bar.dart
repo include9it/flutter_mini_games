@@ -7,8 +7,8 @@ import 'package:flutter_mini_games/widgets/game_2048_widget/buttons/play_control
 import 'package:flutter_mini_games/widgets/game_2048_widget/buttons/play_control_buttons.dart';
 import 'package:flutter_mini_games/widgets/game_2048_widget/play_board.dart';
 
-class PlayAppBar extends StatelessWidget {
-  const PlayAppBar({Key? key}) : super(key: key);
+class MergeDebugAppBar extends StatelessWidget {
+  const MergeDebugAppBar({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
