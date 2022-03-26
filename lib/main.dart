@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mini_games/app_state/theme/app_theme_cubit.dart';
 import 'package:flutter_mini_games/app_state/theme/get_theme_data.dart';
@@ -20,6 +21,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
+    ]);
+
     return MultiBlocProvider(
       providers: [
         BlocProvider(

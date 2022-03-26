@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "765376376006",
+    "project_id": "qa-test-4af51",
+    "storage_bucket": "qa-test-4af51.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:765376376006:android:f4474e75c6addfd9a6bbc7",
+        "android_client_info": {
+          "package_name": "io.include.flpuzzle.flutter_mini_games"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "765376376006-a6utc8hq3ouuldrp5396sgttsipm07dd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRLeUlScappcdbL_nMSQuKBdWd8Eky1a0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "765376376006-a6utc8hq3ouuldrp5396sgttsipm07dd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
