@@ -1,3 +1,4 @@
+import 'package:flutter_mini_games/services/helpers/extensions.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
 part 'play_board_state.freezed.dart';
@@ -41,4 +42,14 @@ class PlayBoardState with _$PlayBoardState {
       );
 
   int get gridHeight => filledGrid.length;
+
+  int get currentScore {
+    // int score = 0;
+    //
+    // for (var row in filledGrid) {
+    //   score += row.sumBy((tile) => tile).toInt();
+    // }
+
+    return filledGrid.map((row) => row.sumBy((tile) => tile)).sum.toInt();
+  }
 }
