@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mini_games/app_state/theme/app_theme_cubit.dart';
 import 'package:flutter_mini_games/app_state/theme/get_theme_data.dart';
 import 'package:flutter_mini_games/config/app_constants.dart';
-import 'package:flutter_mini_games/screen_modules/play_screen/play_screen.dart';
+import 'package:flutter_mini_games/screen_modules/home_screen/home_screen.dart';
 import 'package:logger/logger.dart';
 
 void main() {
@@ -32,7 +32,7 @@ class MyApp extends StatelessWidget {
             navigatorKey: navigatorKey,
             title: appTitle,
             theme: getThemeData(theme),
-            home: const PlayScreen(),
+            home: HomeScreen(),
           );
         },
       ),

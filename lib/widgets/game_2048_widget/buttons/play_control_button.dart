@@ -35,12 +35,13 @@ class PlayControlButton extends StatelessWidget {
                   color: color,
                 )
               : Padding(
-                padding: const EdgeInsets.all(4.0),
-                child: Text(
+                  padding: const EdgeInsets.all(4.0),
+                  child: Text(
                     value,
                     style: TextStyle(color: color, fontSize: size * 0.3),
+                    textAlign: TextAlign.center,
                   ),
-              ),
+                ),
         ),
       ),
     );
