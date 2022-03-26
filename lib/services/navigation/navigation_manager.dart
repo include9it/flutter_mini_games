@@ -33,11 +33,11 @@ class NavigationManager {
         ));
   }
 
-  Future<void> to2048home() async {
+  Future<void> to2048home({bool debug = false}) async {
     Navigator.push(
         _context,
         MaterialPageRoute(
-          builder: (_) => const MergeScreen(),
+          builder: (_) => MergeScreen(debug: debug),
         ));
   }
 }

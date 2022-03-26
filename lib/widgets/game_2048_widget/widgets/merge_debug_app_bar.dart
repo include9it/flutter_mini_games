@@ -54,6 +54,10 @@ class MergeDebugAppBar extends StatelessWidget {
               height: relativeToDesignPixels(20),
             ),
             const PlayControlButtons(),
+            Text(
+              '-> ${state.currentScore.toString()} <-',
+              style: const TextStyle(fontSize: 24),
+            ),
           ],
         );
       },

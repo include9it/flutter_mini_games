@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_mini_games/config/visual.dart';
 import 'package:flutter_mini_games/services/navigation/navigation_manager.dart';
 import 'package:flutter_mini_games/widgets/game_2048_widget/buttons/play_control_button.dart';
 import 'package:flutter_mini_games/widgets/play_scaffold/play_scaffold.dart';
@@ -24,6 +25,15 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              PlayControlButton(
+                color: theme.magentaColor,
+                size: 122,
+                onTap: () => _navigationManager.to2048home(debug: true),
+                value: 'Debug 2048',
+              ),
+              SizedBox(
+                height: relativeToDesignPixels(85),
+              ),
               PlayControlButton(
                 color: theme.primaryOnLightColor,
                 size: 175,
