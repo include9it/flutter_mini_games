@@ -13,12 +13,14 @@ class PlayScreen extends StatelessWidget {
   final int width;
   final int height;
   final bool debug;
+  final Function(String)? onScore;
 
   const PlayScreen({
     Key? key,
     this.width = 4,
     this.height = 4,
     this.debug = false,
+    this.onScore,
   }) : super(key: key);
 
   @override
@@ -33,6 +35,9 @@ class PlayScreen extends StatelessWidget {
           builder: (context, state) {
             final PlayBoardCubit playBoardCubit =
                 context.read<PlayBoardCubit>();
+
+            onScore?.call(playBoardCubit.state.currentScore.toString());
+
             return Center(
               child: Padding(
                 padding: const EdgeInsets.symmetric(

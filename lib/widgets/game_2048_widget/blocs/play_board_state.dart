@@ -43,13 +43,6 @@ class PlayBoardState with _$PlayBoardState {
 
   int get gridHeight => filledGrid.length;
 
-  int get currentScore {
-    // int score = 0;
-    //
-    // for (var row in filledGrid) {
-    //   score += row.sumBy((tile) => tile).toInt();
-    // }
+  int get currentScore => filledGrid.map((row) => row.sumBy((tile) => tile)).sum.toInt();
 
-    return filledGrid.map((row) => row.sumBy((tile) => tile)).sum.toInt();
-  }
 }
