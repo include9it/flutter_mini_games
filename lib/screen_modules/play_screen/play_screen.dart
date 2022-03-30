@@ -14,23 +14,28 @@ class PlayScreen extends StatelessWidget {
   final int height;
   final bool debug;
   final Function(String)? onScore;
+  late final PlayBoardCubit _playBoardCubit;
 
-  const PlayScreen({
+  PlayScreen({
     Key? key,
     this.width = 4,
     this.height = 4,
     this.debug = false,
     this.onScore,
-  }) : super(key: key);
+    PlayBoardCubit? playBoardCubit,
+  }) : super(key: key) {
+    _playBoardCubit = playBoardCubit ??
+        PlayBoardCubit(
+          width: width,
+          height: height,
+        );
+  }
 
   @override
   Widget build(BuildContext context) {
     return PlayScaffold(builder: (theme) {
       return BlocProvider(
-        create: (context) => PlayBoardCubit(
-          width: width,
-          height: height,
-        ),
+        create: (context) => _playBoardCubit,
         child: BlocBuilder<PlayBoardCubit, PlayBoardState>(
           builder: (context, state) {
             final PlayBoardCubit playBoardCubit =

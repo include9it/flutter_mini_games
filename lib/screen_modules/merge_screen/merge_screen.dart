@@ -22,7 +22,7 @@ class MergeScreen extends StatelessWidget {
                     fit: FlexFit.tight,
                     child: Container(),
                   ),
-                  const Flexible(
+                  Flexible(
                     flex: 2,
                     fit: FlexFit.tight,
                     child: PlayScreen(),

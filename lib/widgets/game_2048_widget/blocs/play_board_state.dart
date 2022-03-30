@@ -43,6 +43,19 @@ class PlayBoardState with _$PlayBoardState {
 
   int get gridHeight => filledGrid.length;
 
-  int get currentScore => filledGrid.map((row) => row.sumBy((tile) => tile)).sum.toInt();
+  int get gridWidth => filledGrid.first.length;
 
+  bool get gridIsFull {
+    for (var row in filledGrid) {
+      for (var tile in row) {
+        if (tile?.isNaN ?? true) {
+          return false;
+        }
+      }
+    }
+    return true;
+  }
+
+  int get currentScore =>
+      filledGrid.map((row) => row.sumBy((tile) => tile)).sum.toInt();
 }
