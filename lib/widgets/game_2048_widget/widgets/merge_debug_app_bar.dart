@@ -27,9 +27,9 @@ class MergeDebugAppBar extends StatelessWidget {
             SizedBox(
               height: relativeToDesignPixels(10),
             ),
-            const Text(
-              'Test',
-              style: TextStyle(fontSize: 24),
+            Text(
+              'Test \nBoard: ${state.isGridFull ? 'full' : 'not-full'}',
+              style: const TextStyle(fontSize: 24),
             ),
             SizedBox(
               height: relativeToDesignPixels(20),
