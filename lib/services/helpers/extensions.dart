@@ -8,4 +8,13 @@ extension ListUtils<T> on List<T?> {
     }
     return sum;
   }
+
+  bool get hasNan {
+    for (var item in this) {
+      if (item == null) {
+        return true;
+      }
+    }
+    return false;
+  }
 }

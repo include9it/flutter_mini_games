@@ -45,12 +45,10 @@ class PlayBoardState with _$PlayBoardState {
 
   int get gridWidth => filledGrid.first.length;
 
-  bool get gridIsFull {
+  bool get isGridFull {
     for (var row in filledGrid) {
-      for (var tile in row) {
-        if (tile?.isNaN ?? true) {
-          return false;
-        }
+      if (row.hasNan) {
+        return false;
       }
     }
     return true;
