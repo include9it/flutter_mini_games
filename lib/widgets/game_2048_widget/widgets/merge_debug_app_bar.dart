@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_mini_games/config/visual.dart';
@@ -29,6 +30,7 @@ class MergeDebugAppBar extends StatelessWidget {
             ),
             Text(
               'Test \nBoard: ${state.isGridFull ? 'full' : 'not-full'}',
+              textAlign: TextAlign.center,
               style: const TextStyle(fontSize: 24),
             ),
             SizedBox(
